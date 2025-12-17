@@ -29,17 +29,13 @@
     <aside id="sidebar"
         class="bg-slate-900 text-slate-300 w-64 flex-shrink-0 fixed inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition-transform duration-300 ease-in-out z-40 flex flex-col h-full shadow-xl">
 
-        <!-- Header Sidebar (Design Limpo e Logo Maior) -->
-        <div class="p-6 pt-8 border-b border-slate-800 flex flex-col items-center justify-center text-center gap-2">
-
-            <!-- Logo Container -->
-            <!-- Aumentado para w-40 (160px) e removido background/borda para visual limpo -->
+        <!-- Header Sidebar -->
+        <div
+            class="p-6 pt-24 md:pt-8 border-b border-slate-800 flex flex-col items-center justify-center text-center gap-2">
             <div class="w-40 h-auto flex items-center justify-center mb-2">
                 <img src="../assets/logos/logo-prefeitura-2.png" alt="Logo Prefeitura"
                     class="w-full h-auto object-contain">
             </div>
-
-            <!-- Textos -->
             <div class="flex flex-col gap-1 w-full mt-5">
                 <h1 class="font-bold text-white text-xl tracking-wide">BI-APS</h1>
                 <p
@@ -60,7 +56,7 @@
         <!-- Menu de Navegação -->
         <nav class="flex-1 overflow-y-auto py-2 space-y-6 px-3 custom-scrollbar">
 
-            <!-- Link Visão Geral (Ativo) -->
+            <!-- Link Visão Geral -->
             <div>
                 <a href="../index.html"
                     class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium">
@@ -74,7 +70,7 @@
                     Primária)</h3>
                 <ul class="space-y-1">
 
-                    <!-- 1. Query - QUEM SOMOS -->
+                    <!-- 1. Query - QUEM SOMOS (Ativo)-->
                     <li>
                         <a href="./bi_aps_quem_somos.html"
                             class="sidebar-link flex items-center gap-3 px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 transition-colors">
@@ -82,34 +78,64 @@
                         </a>
                     </li>
 
-                    <!-- 2. Query - A QUEM SERVIMOS (Dropdown) -->
+                    <!-- 2. Dropdown Pai: A QUEM SERVIMOS -->
                     <li>
-                        <!-- Botão Pai -->
-                        <button onclick="toggleSubmenu('submenu-servimos')"
+                        <button onclick="toggleSubmenu('submenu-servimos', 'chevron-servimos')"
                             class="active sidebar-link w-full flex items-center justify-between px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 group text-left focus:outline-none transition-colors">
                             <div class="flex items-center gap-3">
                                 <i class="ph ph-users-three"></i>
                                 A QUEM SERVIMOS
                             </div>
-                            <!-- Iniciando com rotação (aberto) -->
                             <i id="chevron-servimos"
                                 class="ph ph-caret-down text-slate-500 transition-transform duration-200 rotate-180"></i>
                         </button>
 
-                        <!-- Submenu Container -->
+                        <!-- Container do Submenu Servimos -->
                         <div id="submenu-servimos"
-                            class="pl-10 pr-2 py-1 space-y-1 overflow-hidden transition-all duration-300">
-                            <a href="./bi_aps_hanseniase.html"
-                                class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
-                                Query - Hanseníase
-                            </a>
+                            class="pl-7 pr-2 py-1 space-y-1 overflow-hidden transition-all duration-300">
+
+                            <!-- Link Simples dentro do Servimos -->
                             <a href="./bi_aps_a_quem_servimos.html"
                                 class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
                                 Query - A QUEM SERVIMOS
                             </a>
-                        </div>
 
-                        <!-- Próximas querys -->
+                            <!-- Dropdown Aninhado (Perfil clínico-epidemiológico) -->
+                            <div class="mt-1">
+                                <button onclick="toggleSubmenu('submenu-perfil', 'chevron-perfil')"
+                                    class="sidebar-link w-full flex items-center justify-between px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 group text-left focus:outline-none transition-colors overflow-hidden">
+                                    <div class="flex items-center gap-3 overflow-hidden w-full">
+                                        <i class="ph ph-chart-bar flex-shrink-0"></i>
+                                        <div class="marquee-container">
+                                            <span class="marquee-text">Perfil clínico-epidemiológico</span>
+                                        </div>
+                                    </div>
+                                    <i id="chevron-perfil"
+                                        class="ph ph-caret-down text-slate-500 transition-transform duration-200"></i>
+                                </button>
+
+                                <!-- Submenu do Perfil (Hanseníase, TB, etc) -->
+                                <div id="submenu-perfil"
+                                    class="pl-8 pr-2 py-1 space-y-1 overflow-hidden transition-all duration-300">
+                                    <a href="./bi_aps_hanseniase.html"
+                                        class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                        Query - Hanseníase
+                                    </a>
+                                    <a href="./emConstrucao.html"
+                                        class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                        Query - Turbeculose
+                                    </a>
+                                    <a href="./emConstrucao.html"
+                                        class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                        Query - Sífilis
+                                    </a>
+                                    <a href="./emConstrucao.html"
+                                        class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                        Query - Hepatites
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </li>
 
                 </ul>

@@ -34,6 +34,7 @@ body {
 /* =========================================
    COMPONENTE: Sidebar & Navegação
    ========================================= */
+
 /* Links da Sidebar */
 .sidebar-link {
     transition: all 0.2s ease;
@@ -76,6 +77,23 @@ body {
 /* Utilitário para rotação de ícones (setas) */
 .rotate-180 {
     transform: rotate(180deg);
+}
+
+/* Estilo específico para o efeito de deslize (Marquee) no menu longo */
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-text {
+    display: inline-block;
+    transition: transform 2.5s linear;
+}
+
+/* Ao passar o mouse no botão pai (group), o texto desliza para a esquerda */
+.group:hover .marquee-text {
+    transform: translateX(calc(-100% + 140px));
 }
 
 /* =========================================
