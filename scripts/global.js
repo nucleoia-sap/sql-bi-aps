@@ -1,4 +1,4 @@
-// scripts globais de cada página
+// Scripts globais de cada página
 
 /**
  * Alterna a visibilidade da Sidebar em dispositivos móveis
@@ -108,4 +108,140 @@ document.addEventListener('DOMContentLoaded', (event) => {
     if (typeof hljs !== 'undefined') {
         hljs.highlightAll();
     }
+
+    // Versão do Sistema
+    const versaoSistema = document.getElementById('versao-sistema');
+    if (versaoSistema) {
+        versaoSistema.innerText = 'v1.0.1';
+    }
+
+
+    /* ==========================================================================
+           LÓGICA DE BUSCA DA SIDEBAR
+    ========================================================================== */
+    
+    const searchInput = document.getElementById('sidebar-search');
+    
+    if (searchInput) {
+        searchInput.addEventListener('input', function (e) {
+            const term = e.target.value.toLowerCase().trim();
+            const nav = document.querySelector('aside nav');
+    
+            // Prepara elemento de "Não encontrado" (Lazy creation)
+            let noResultsMsg = document.getElementById('sidebar-no-results');
+            if (!noResultsMsg && nav) {
+                noResultsMsg = document.createElement('div');
+                noResultsMsg.id = 'sidebar-no-results';
+                noResultsMsg.className = 'hidden px-4 py-8 text-sm text-slate-500 text-center flex flex-col items-center gap-2 animate-fade-in';
+                noResultsMsg.innerHTML = `
+                        <i class="ph ph-magnifying-glass text-2xl mb-1 opacity-50"></i>
+                        <p>Não foi possível achar essa query, tente novamente ou seja mais específico.</p>
+                    `;
+                nav.appendChild(noResultsMsg);
+            }
+    
+            // --- ESTADO 1: LIMPAR BUSCA (Restaurar padrão) ---
+            if (term === '') {
+                // Esconde mensagem de erro se existir
+                if (noResultsMsg) noResultsMsg.classList.add('hidden');
+    
+                // 1. Remove classe 'hidden' de tudo que foi filtrado
+                nav.querySelectorAll('.hidden').forEach(el => {
+                    // Simplificação: Reexibe os itens principais (li), reexibe o link de Visão Geral
+                    // Ignora o elemento de 'no results' para não mostrá-lo acidentalmente
+                    if (el.id !== 'sidebar-no-results' && (el.tagName === 'LI' || (el.tagName === 'DIV' && el.parentElement === nav))) {
+                        el.classList.remove('hidden');
+                    }
+                });
+    
+                // 2. Garante que os submenus se fechem para limpar a view
+                nav.querySelectorAll('[id^="submenu-"]').forEach(sub => sub.classList.add('hidden'));
+    
+                // 3. Reseta os ícones chevron
+                nav.querySelectorAll('.ph-caret-down').forEach(icon => icon.classList.remove('rotate-180'));
+    
+                // 4. Garante que os links internos dos submenus estejam "prontos" para aparecer
+                nav.querySelectorAll('.submenu-link').forEach(link => link.classList.remove('hidden'));
+    
+                // 5. Garante que Visão Geral apareça
+                const visaoGeral = nav.querySelector('a[href*="index.html"]')?.parentElement;
+                if (visaoGeral) visaoGeral.classList.remove('hidden');
+    
+                return;
+            }
+    
+            // --- ESTADO 2: FILTRANDO ---
+            let hasResults = false; // Flag para controlar se achamos algo
+    
+            // 1. Ocultar TUDO inicialmente (Top Level)
+            // Visão Geral
+            const visaoGeralContainer = nav.querySelector('a[href*="index.html"]')?.parentElement;
+            if (visaoGeralContainer) visaoGeralContainer.classList.add('hidden');
+    
+            // Todos os itens de lista (LIs)
+            nav.querySelectorAll('li').forEach(li => li.classList.add('hidden'));
+    
+            // Ocultar links individuais de submenu
+            nav.querySelectorAll('.submenu-link').forEach(link => link.classList.add('hidden'));
+    
+            // 2. Verificar correspondências e reexibir
+    
+            // A) Verificar Visão Geral
+            const visaoGeralLink = nav.querySelector('a[href*="index.html"]');
+            if (visaoGeralLink && visaoGeralLink.innerText.toLowerCase().includes(term)) {
+                visaoGeralContainer.classList.remove('hidden');
+                hasResults = true;
+            }
+    
+            // B) Verificar LIs (Itens principais e Submenus)
+            nav.querySelectorAll('li').forEach(li => {
+                let showLi = false;
+    
+                // Checa o link/botão principal do LI
+                const mainLink = li.querySelector('.sidebar-link');
+                if (mainLink && mainLink.innerText.toLowerCase().includes(term)) {
+                    showLi = true;
+    
+                    const submenu = li.querySelector('[id^="submenu-"]');
+                    if (submenu) {
+                        submenu.classList.remove('hidden');
+                        submenu.querySelectorAll('.submenu-link').forEach(sl => sl.classList.remove('hidden'));
+                        const chevron = li.querySelector('.ph-caret-down');
+                        if (chevron) chevron.classList.add('rotate-180');
+                    }
+                }
+    
+                // Checa os filhos do submenu individualmente
+                const subLinks = li.querySelectorAll('.submenu-link');
+                subLinks.forEach(subLink => {
+                    if (subLink.innerText.toLowerCase().includes(term)) {
+                        showLi = true;
+                        subLink.classList.remove('hidden');
+    
+                        const submenu = subLink.closest('[id^="submenu-"]');
+                        if (submenu) submenu.classList.remove('hidden');
+    
+                        const chevron = li.querySelector('.ph-caret-down');
+                        if (chevron) chevron.classList.add('rotate-180');
+                    }
+                });
+    
+                if (showLi) {
+                    li.classList.remove('hidden');
+                    hasResults = true;
+                }
+            });
+    
+            // 3. Exibir ou Ocultar mensagem de "Não encontrado"
+            if (noResultsMsg) {
+                if (!hasResults) {
+                    noResultsMsg.classList.remove('hidden');
+                } else {
+                    noResultsMsg.classList.add('hidden');
+                }
+            }
+        });
+    }
 });
+
+
