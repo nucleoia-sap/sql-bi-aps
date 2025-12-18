@@ -134,6 +134,114 @@
                             </div>
                         </div>
                     </li>
+
+                    <!-- 3. Dropdown Pai: Nossos Resultados (NOVO) -->
+                    <li>
+                        <button onclick="toggleSubmenu('submenu-resultados', 'chevron-resultados')"
+                            class="sidebar-link w-full flex items-center justify-between px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 group text-left focus:outline-none transition-colors">
+                            <div class="flex items-center gap-3">
+                                <i class="ph ph-chart-line-up"></i>
+                                Nossos resultados
+                            </div>
+                            <i id="chevron-resultados"
+                                class="ph ph-caret-down text-slate-500 transition-transform duration-200"></i>
+                        </button>
+
+                        <!-- Container do Submenu Resultados -->
+                        <div id="submenu-resultados"
+                            class="hidden pl-7 pr-2 py-1 space-y-1 overflow-hidden transition-all duration-300">
+
+                            <!-- Link: SIAPS -->
+                            <a href="./pages/emConstrucao.html"
+                                class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                Query - Sistemas de Informação (SIAPS)
+                            </a>
+
+                            <!-- Link: UAPI -->
+                            <a href="./pages/emConstrucao.html"
+                                class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                Query - Unidade Amiga da primeira infância (UAPI)
+                            </a>
+
+                            <!-- Link: Accountability -->
+                            <a href="./pages/emConstrucao.html"
+                                class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                Query - Accountability
+                            </a>
+
+                            <!-- Subpasta: Doenças Crônicas Transmissíveis -->
+                            <div class="mt-1">
+                                <button onclick="toggleSubmenu('submenu-dct', 'chevron-dct')"
+                                    class="sidebar-link w-full flex items-center justify-between px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 group text-left focus:outline-none transition-colors overflow-hidden">
+                                    <div class="flex items-center gap-3 overflow-hidden w-full">
+                                        <i class="ph ph-virus flex-shrink-0"></i>
+                                        <div class="marquee-container">
+                                            <span class="marquee-text">Doenças Crônicas Transmissíveis</span>
+                                        </div>
+                                    </div>
+                                    <i id="chevron-dct"
+                                        class="ph ph-caret-down text-slate-500 transition-transform duration-200"></i>
+                                </button>
+                                <div id="submenu-dct"
+                                    class="hidden pl-8 pr-2 py-1 space-y-1 overflow-hidden transition-all duration-300">
+                                    <a href="./pages/emConstrucao.html"
+                                        class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                        Query - Exemplo
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Subpasta: Doenças crônicas não transmissíveis -->
+                            <div class="mt-1">
+                                <button onclick="toggleSubmenu('submenu-dcnt', 'chevron-dcnt')"
+                                    class="sidebar-link w-full flex items-center justify-between px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 group text-left focus:outline-none transition-colors overflow-hidden">
+                                    <div class="flex items-center gap-3 overflow-hidden w-full">
+                                        <i class="ph ph-heart-beat flex-shrink-0"></i>
+                                        <div class="marquee-container">
+                                            <span class="marquee-text">Doenças Crônicas Não Transmissíveis</span>
+                                        </div>
+                                    </div>
+                                    <i id="chevron-dcnt"
+                                        class="ph ph-caret-down text-slate-500 transition-transform duration-200"></i>
+                                </button>
+                                <div id="submenu-dcnt"
+                                    class="hidden pl-8 pr-2 py-1 space-y-1 overflow-hidden transition-all duration-300">
+                                    <a href="./pages/emConstrucao.html"
+                                        class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                        Query - Exemplo
+                                    </a>
+
+                                    <a href="./pages/emConstrucao.html"
+                                        class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                        Query - Exemplo
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Subpasta: Ciclo de vidas -->
+                            <div class="mt-1">
+                                <button onclick="toggleSubmenu('submenu-ciclo', 'chevron-ciclo')"
+                                    class="sidebar-link w-full flex items-center justify-between px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 group text-left focus:outline-none transition-colors overflow-hidden">
+                                    <div class="flex items-center gap-3 overflow-hidden w-full">
+                                        <i class="ph ph-arrows-clockwise flex-shrink-0"></i>
+                                        <div class="marquee-container">
+                                            <span class="marquee-text">Ciclo de Vidas</span>
+                                        </div>
+                                    </div>
+                                    <i id="chevron-ciclo"
+                                        class="ph ph-caret-down text-slate-500 transition-transform duration-200"></i>
+                                </button>
+                                <div id="submenu-ciclo"
+                                    class="hidden pl-8 pr-2 py-1 space-y-1 overflow-hidden transition-all duration-300">
+                                    <a href="./pages/emConstrucao.html"
+                                        class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                        Query - Exemplo
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -225,7 +333,7 @@
                                 class="p-3 bg-blue-50 text-blue-600 rounded-lg group-hover:bg-blue-100 transition-colors">
                                 <i class="ph ph-users text-2xl"></i>
                             </div>
-                            
+
                             <span
                                 class="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-1 rounded-full border border-green-200 uppercase">Concluído</span>
                         </div>
@@ -243,11 +351,13 @@
                                 class="p-3 bg-blue-50 text-blue-600 rounded-lg group-hover:bg-blue-100 transition-colors">
                                 <i class="ph ph-person text-2xl"></i>
                             </div>
-                            
+
                             <span
-                                class="bg-gray-100 text-gray-700 text-[10px] font-bold px-2 py-1 rounded-full border border-gray-200 uppercase">Não inciado</span>
+                                class="bg-gray-100 text-gray-700 text-[10px] font-bold px-2 py-1 rounded-full border border-gray-200 uppercase">Não
+                                inciado</span>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-sky-600 transition-colors">Sífilis</h3>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-sky-600 transition-colors">
+                            Sífilis</h3>
                         <p class="text-sm text-slate-500 mb-4">
                             Módulo de "Perfil clínico-epidemiológico"
                         </p>
@@ -260,11 +370,13 @@
                                 class="p-3 bg-blue-50 text-blue-600 rounded-lg group-hover:bg-blue-100 transition-colors">
                                 <i class="ph ph-person text-2xl"></i>
                             </div>
-                            
+
                             <span
-                                class="bg-blue-100 text-blue-700 text-[10px] font-bold px-2 py-1 rounded-full border border-blue-200 uppercase">Em construção</span>
+                                class="bg-blue-100 text-blue-700 text-[10px] font-bold px-2 py-1 rounded-full border border-blue-200 uppercase">Em
+                                construção</span>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-sky-600 transition-colors">Tuberculose</h3>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-sky-600 transition-colors">
+                            Tuberculose</h3>
                         <p class="text-sm text-slate-500 mb-4">
                             Módulo de "Perfil clínico-epidemiológico"
                         </p>
@@ -277,11 +389,13 @@
                                 class="p-3 bg-blue-50 text-blue-600 rounded-lg group-hover:bg-blue-100 transition-colors">
                                 <i class="ph ph-person text-2xl"></i>
                             </div>
-                            
+
                             <span
-                                class="bg-gray-100 text-gray-700 text-[10px] font-bold px-2 py-1 rounded-full border border-gray-200 uppercase">Não inciado</span>
+                                class="bg-gray-100 text-gray-700 text-[10px] font-bold px-2 py-1 rounded-full border border-gray-200 uppercase">Não
+                                inciado</span>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-sky-600 transition-colors">Hepatites</h3>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-sky-600 transition-colors">
+                            Hepatites</h3>
                         <p class="text-sm text-slate-500 mb-4">
                             Módulo de "Perfil clínico-epidemiológico"
                         </p>

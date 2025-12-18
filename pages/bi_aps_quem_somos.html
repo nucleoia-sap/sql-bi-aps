@@ -70,7 +70,7 @@
                     Primária)</h3>
                 <ul class="space-y-1">
 
-                    <!-- 1. Query - QUEM SOMOS (Ativo)-->
+                    <!-- 1. Query - QUEM SOMOS -->
                     <li>
                         <a href="./bi_aps_quem_somos.html"
                             class="active sidebar-link flex items-center gap-3 px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 transition-colors">
@@ -100,7 +100,7 @@
                                 Query - A QUEM SERVIMOS
                             </a>
 
-                            <!-- Dropdown Aninhado (Perfil clínico-epidemiológico) -->
+                            <!-- NOVO: Dropdown Aninhado (Perfil clínico-epidemiológico) -->
                             <div class="mt-1">
                                 <button onclick="toggleSubmenu('submenu-perfil', 'chevron-perfil')"
                                     class="sidebar-link w-full flex items-center justify-between px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 group text-left focus:outline-none transition-colors overflow-hidden">
@@ -138,6 +138,108 @@
                         </div>
                     </li>
 
+                    <!-- 3. Dropdown Pai: Nossos Resultados (NOVO) -->
+                    <li>
+                        <button onclick="toggleSubmenu('submenu-resultados', 'chevron-resultados')"
+                            class="sidebar-link w-full flex items-center justify-between px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 group text-left focus:outline-none transition-colors">
+                            <div class="flex items-center gap-3">
+                                <i class="ph ph-chart-line-up"></i>
+                                Nossos resultados
+                            </div>
+                            <i id="chevron-resultados"
+                                class="ph ph-caret-down text-slate-500 transition-transform duration-200"></i>
+                        </button>
+
+                        <!-- Container do Submenu Resultados -->
+                        <div id="submenu-resultados"
+                            class="hidden pl-7 pr-2 py-1 space-y-1 overflow-hidden transition-all duration-300">
+
+                            <!-- Link: SIAPS -->
+                            <a href="./emConstrucao.html"
+                                class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                Query - Sistemas de Informação (SIAPS)
+                            </a>
+
+                            <!-- Link: UAPI -->
+                            <a href="./emConstrucao.html"
+                                class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                Query - Unidade Amiga da primeira infância (UAPI)
+                            </a>
+
+                            <!-- Link: Accountability -->
+                            <a href="./emConstrucao.html"
+                                class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                Query - Accountability
+                            </a>
+
+                            <!-- Subpasta: Doenças Crônicas Transmissíveis -->
+                            <div class="mt-1">
+                                <button onclick="toggleSubmenu('submenu-dct', 'chevron-dct')"
+                                    class="sidebar-link w-full flex items-center justify-between px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 group text-left focus:outline-none transition-colors overflow-hidden">
+                                    <div class="flex items-center gap-3 overflow-hidden w-full">
+                                        <i class="ph ph-virus flex-shrink-0"></i>
+                                        <div class="marquee-container">
+                                            <span class="marquee-text">Doenças Crônicas Transmissíveis</span>
+                                        </div>
+                                    </div>
+                                    <i id="chevron-dct"
+                                        class="ph ph-caret-down text-slate-500 transition-transform duration-200"></i>
+                                </button>
+                                <div id="submenu-dct"
+                                    class="hidden pl-8 pr-2 py-1 space-y-1 overflow-hidden transition-all duration-300">
+                                    <a href="./emConstrucao.html"
+                                        class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                        Query - Exemplo
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Subpasta: Doenças crônicas não transmissíveis -->
+                            <div class="mt-1">
+                                <button onclick="toggleSubmenu('submenu-dcnt', 'chevron-dcnt')"
+                                    class="sidebar-link w-full flex items-center justify-between px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 group text-left focus:outline-none transition-colors overflow-hidden">
+                                    <div class="flex items-center gap-3 overflow-hidden w-full">
+                                        <i class="ph ph-heart-beat flex-shrink-0"></i>
+                                        <div class="marquee-container">
+                                            <span class="marquee-text">Doenças Crônicas Não Transmissíveis</span>
+                                        </div>
+                                    </div>
+                                    <i id="chevron-dcnt"
+                                        class="ph ph-caret-down text-slate-500 transition-transform duration-200"></i>
+                                </button>
+                                <div id="submenu-dcnt"
+                                    class="hidden pl-8 pr-2 py-1 space-y-1 overflow-hidden transition-all duration-300">
+                                    <a href="./emConstrucao.html"
+                                        class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                        Query - Exemplo
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Subpasta: Ciclo de vidas -->
+                            <div class="mt-1">
+                                <button onclick="toggleSubmenu('submenu-ciclo', 'chevron-ciclo')"
+                                    class="sidebar-link w-full flex items-center justify-between px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 group text-left focus:outline-none transition-colors overflow-hidden">
+                                    <div class="flex items-center gap-3 overflow-hidden w-full">
+                                        <i class="ph ph-arrows-clockwise flex-shrink-0"></i>
+                                        <div class="marquee-container">
+                                            <span class="marquee-text">Ciclo de Vidas</span>
+                                        </div>
+                                    </div>
+                                    <i id="chevron-ciclo"
+                                        class="ph ph-caret-down text-slate-500 transition-transform duration-200"></i>
+                                </button>
+                                <div id="submenu-ciclo"
+                                    class="hidden pl-8 pr-2 py-1 space-y-1 overflow-hidden transition-all duration-300">
+                                    <a href="./emConstrucao.html"
+                                        class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                        Query - Exemplo
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
                 </ul>
             </div>
         </nav>
