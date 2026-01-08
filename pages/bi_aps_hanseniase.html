@@ -118,7 +118,7 @@
                                 <div id="submenu-perfil"
                                     class="pl-8 pr-2 py-1 space-y-1 overflow-hidden transition-all duration-300">
                                     <a href="./bi_aps_hanseniase.html"
-                                        class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
+                                        class="submenu-link block py-2 text-sm text-sky-400 font-medium hover:text-sky-300 transition-colors">
                                         Query - Hanseníase
                                     </a>
                                     <a href="./emConstrucao.html"
@@ -155,7 +155,7 @@
                             class="hidden pl-7 pr-2 py-1 space-y-1 overflow-hidden transition-all duration-300">
 
                             <!-- Link: SIAPS -->
-                            <a href="./emConstrucao.html"
+                            <a href="./bi_aps_siaps.html"
                                 class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
                                 Query - Sistemas de Informação (SIAPS)
                             </a>
@@ -393,273 +393,19 @@
                     <!-- Conteúdo: SQL -->
                     <div id="sql" class="tab-content p-0">
                         <div class="relative">
-                            <button onclick="copySql()"
+
+                            <button onclick="copyElementId('code-hanseniase', this)"
                                 class="absolute top-4 right-4 bg-slate-700 hover:bg-slate-600 text-white text-xs px-3 py-1.5 rounded flex items-center gap-2 transition-colors z-10">
                                 <i class="ph ph-copy"></i> Copiar
                             </button>
-                            <pre class="m-0"><code class="language-sql shadow-none rounded-none">
--- ======================================================================
--- Parâmetro dinâmico: 18 meses antes da execução
--- ======================================================================
-DECLARE data_corte DATETIME DEFAULT DATETIME_SUB(CURRENT_DATETIME(), INTERVAL 18 MONTH);
 
--- ======================================================================
--- 1) LISTA DE HANSENÍASE COM CPF (chave: id_cnes|'|'|id_prontuario_local)
---    Fonte sem CPF: rj-sms.brutos_prontuario_vitacare_historico.hanseniase
---    CPF via ACTO:  rj-sms.brutos_prontuario_vitacare_historico.acto
--- ======================================================================
-CREATE OR REPLACE TABLE `rj-sms-sandbox.sub_pav_us._hanseniase_lista_com_cpf` AS
-WITH
-hs_base AS (
-  SELECT
-    TRIM(id_cnes) AS id_cnes_norm,
-    TRIM(id_prontuario_local) AS id_pl_norm,
-    CONCAT(TRIM(id_cnes), '|', TRIM(id_prontuario_local)) AS chave_hs,
-    h.*
-  FROM `rj-sms.brutos_prontuario_vitacare_historico.hanseniase` h
-),
-acto_base AS (
-  SELECT
-    TRIM(id_cnes) AS id_cnes_norm,
-    TRIM(id_prontuario_local) AS id_pl_norm,
-    CONCAT(TRIM(id_cnes), '|', TRIM(id_prontuario_local)) AS chave_hs,
-    REGEXP_REPLACE(TRIM(patient_cpf), r'\D', '') AS paciente_cpf_digits
-  FROM `rj-sms.brutos_prontuario_vitacare_historico.acto`
-  WHERE patient_cpf IS NOT NULL
-    AND LENGTH(TRIM(patient_cpf)) > 0
-),
-acto_chave_cpf AS (
-  SELECT
-    chave_hs,
-    ANY_VALUE(paciente_cpf_digits) AS paciente_cpf_digits
-  FROM acto_base
-  WHERE chave_hs IS NOT NULL
-    AND paciente_cpf_digits IS NOT NULL
-    AND LENGTH(paciente_cpf_digits) = 11
-  GROUP BY chave_hs
-)
-SELECT
-  hs.*,
-  ac.paciente_cpf_digits AS paciente_cpf
-FROM hs_base hs
-LEFT JOIN acto_chave_cpf ac
-  ON hs.chave_hs = ac.chave_hs
-;
-
--- ======================================================================
--- 2) TABELA FINAL: _hanseniase_em_tratamento
---    Critérios:
---    (1) Prescrição relevante
---    (2) CID A30* ativo na janela e ativo no registro mais recente
---    (3) Presença na lista de Hanseníase (com CPF)
--- ======================================================================
-CREATE OR REPLACE TABLE `rj-sms-sandbox.sub_pav_us._hanseniase_em_tratamento` AS
-WITH
-/* 2.1) PRESCRIÇÕES RELEVANTES (EA)
-   - Rifampicina + Clofazimina + Dapsona (padrão)
-   - OU (qualquer 2 desses) + (Ofloxacino OU Minociclina)
-*/
-hs_prescricao_raw AS (
-  SELECT
-    REGEXP_REPLACE(TRIM(ea.paciente_cpf), r'\D', '') AS paciente_cpf,
-    ea.entrada_datahora AS data_prescricao,
-    LOWER(p.nome) AS nome_medicamento
-  FROM `rj-sms.saude_historico_clinico.episodio_assistencial` AS ea,
-       UNNEST(ea.prescricoes) AS p
-  WHERE
-    ea.entrada_datahora >= data_corte
-    AND ea.paciente_cpf IS NOT NULL
-    AND LENGTH(TRIM(ea.paciente_cpf)) > 0
-    AND REGEXP_CONTAINS(
-          LOWER(p.nome),
-          r'rifampicin|rifampicina|clofazim|clofazimina|dapson|dapsona|ofloxac|ofloxacino|minociclin|minociclina'
-        )
-),
-tokens AS (
-  SELECT
-    paciente_cpf,
-    data_prescricao,
-    LOWER(TRIM(tok)) AS tok
-  FROM hs_prescricao_raw,
-  UNNEST(SPLIT(REGEXP_REPLACE(nome_medicamento, r'\+', ','))) AS tok
-),
-flags_base AS (
-  SELECT
-    paciente_cpf,
-    data_prescricao,
-    COUNTIF(REGEXP_CONTAINS(tok, r'rifampicin|rifampicina')) > 0 AS has_rifa,
-    COUNTIF(REGEXP_CONTAINS(tok, r'clofazim|clofazimina'))    > 0 AS has_clofa,
-    COUNTIF(REGEXP_CONTAINS(tok, r'dapson|dapsona'))          > 0 AS has_dapso,
-    COUNTIF(REGEXP_CONTAINS(tok, r'ofloxac|ofloxacino'))      > 0 AS has_oflox,
-    COUNTIF(REGEXP_CONTAINS(tok, r'minociclin|minociclina'))  > 0 AS has_minoc
-  FROM tokens
-  GROUP BY paciente_cpf, data_prescricao
-),
-esquema_por_consulta AS (
-  SELECT
-    paciente_cpf,
-    data_prescricao,
-    has_rifa, has_clofa, has_dapso, has_oflox, has_minoc,
-    (CAST(has_rifa AS INT64) + CAST(has_clofa AS INT64) + CAST(has_dapso AS INT64)) AS cnt_base3,
-    CASE
-      WHEN (has_rifa AND has_clofa AND has_dapso) THEN 'PADRAO_RCD'
-      WHEN ( (CAST(has_rifa AS INT64)+CAST(has_clofa AS INT64)+CAST(has_dapso AS INT64)) >= 2
-             AND (has_oflox OR has_minoc) ) THEN 'BASE2_PLUS_ADJ'
-      ELSE NULL
-    END AS tipo_esquema
-  FROM flags_base
-),
-consultas_validas AS (
-  SELECT
-    e.paciente_cpf,
-    e.data_prescricao,
-    e.tipo_esquema,
-    ARRAY_TO_STRING(
-      ARRAY(
-        SELECT med FROM UNNEST([
-          IF(e.has_rifa, 'rifampicina', NULL),
-          IF(e.has_clofa, 'clofazimina', NULL),
-          IF(e.has_dapso, 'dapsona', NULL),
-          IF(e.has_oflox,'ofloxacino', NULL),
-          IF(e.has_minoc,'minociclina', NULL)
-        ]) med
-        WHERE med IS NOT NULL
-      ), ', '
-    ) AS lista_meds_consulta
-  FROM esquema_por_consulta e
-  WHERE e.tipo_esquema IS NOT NULL
-),
-presc_cpfs AS (
-  SELECT DISTINCT paciente_cpf
-  FROM consultas_validas
-  WHERE paciente_cpf IS NOT NULL AND LENGTH(paciente_cpf) = 11
-),
-presc_meds_ult AS (
-  SELECT paciente_cpf,
-         lista_meds_consulta AS medicamentos_prescritos_mais_recente
-  FROM (
-    SELECT
-      paciente_cpf,
-      lista_meds_consulta,
-      ROW_NUMBER() OVER (PARTITION BY paciente_cpf ORDER BY data_prescricao DESC) AS rn
-    FROM consultas_validas
-    WHERE paciente_cpf IS NOT NULL AND LENGTH(paciente_cpf) = 11
-  )
-  WHERE rn = 1
-),
-
-/* 2.2) CID — A30* (Hanseníase)
-   Regra: teve ativo em algum momento nos últimos 18 meses (independente do status atual)
-*/
-cid_eventos AS (
-  SELECT
-    REGEXP_REPLACE(TRIM(ea.paciente_cpf), r'\D', '') AS paciente_cpf,
-    UPPER(TRIM(c.situacao)) AS situacao_norm,
-    IFNULL(SAFE_CAST(c.data_diagnostico AS DATETIME), ea.entrada_datahora) AS dt_ref
-  FROM `rj-sms.saude_historico_clinico.episodio_assistencial` AS ea,
-       UNNEST(ea.condicoes) AS c
-  WHERE
-    LOWER(c.id) LIKE 'a30%'  -- CID A30 = hanseníase
-    AND IFNULL(SAFE_CAST(c.data_diagnostico AS DATETIME), ea.entrada_datahora) >= data_corte
-    AND ea.paciente_cpf IS NOT NULL
-    AND LENGTH(TRIM(ea.paciente_cpf)) = 11
-),
-cid_teve_ativo AS (
-  SELECT DISTINCT paciente_cpf
-  FROM cid_eventos
-  WHERE situacao_norm = 'ATIVO'
-),
-cid_cpfs AS (
-  SELECT DISTINCT paciente_cpf FROM cid_teve_ativo
-),
-
-/* 2.3) Lista Hanseníase (por CPF) */
-lista_info AS (
-  SELECT
-    REGEXP_REPLACE(TRIM(paciente_cpf), r'\D', '') AS paciente_cpf,
-    numero_sinan_hansen AS num_sinan,
-    id_cnes AS id_cnes_lista
-  FROM (
-    SELECT
-      paciente_cpf,
-      numero_sinan_hansen,
-      id_cnes,
-      data_inicio_tratamento,
-      ROW_NUMBER() OVER (PARTITION BY paciente_cpf ORDER BY data_inicio_tratamento DESC) AS rn
-    FROM `rj-sms-sandbox.sub_pav_us._hanseniase_lista_com_cpf`
-    WHERE data_inicio_tratamento >= data_corte
-      AND paciente_cpf IS NOT NULL AND LENGTH(TRIM(paciente_cpf)) > 0
-  )
-  WHERE rn = 1
-    AND LENGTH(REGEXP_REPLACE(TRIM(paciente_cpf), r'\D', '')) = 11
-),
-lista_cpfs AS (
-  SELECT DISTINCT paciente_cpf FROM lista_info
-),
-
-/* 2.4) EA — mais recente na janela (para unidade de referência) */
-ea_info AS (
-  SELECT
-    paciente_cpf,
-    motivo_atendimento,
-    desfecho_atendimento,
-    estabelecimento.id_cnes  AS id_cnes_ea,
-    estabelecimento.nome     AS unidade_nome_ea
-  FROM (
-    SELECT
-      REGEXP_REPLACE(TRIM(paciente_cpf), r'\D', '') AS paciente_cpf,
-      motivo_atendimento, desfecho_atendimento, estabelecimento, entrada_datahora,
-      ROW_NUMBER() OVER (PARTITION BY REGEXP_REPLACE(TRIM(paciente_cpf), r'\D', '') ORDER BY entrada_datahora DESC) AS rn
-    FROM `rj-sms.saude_historico_clinico.episodio_assistencial`
-    WHERE entrada_datahora >= data_corte
-      AND paciente_cpf IS NOT NULL
-      AND LENGTH(TRIM(paciente_cpf)) > 0
-  )
-  WHERE rn = 1
-    AND LENGTH(paciente_cpf) = 11
-),
-
-/* 2.5) UNIVERSO DE CPFs */
-universo AS (
-  SELECT paciente_cpf FROM presc_cpfs
-  UNION DISTINCT SELECT paciente_cpf FROM cid_cpfs
-  UNION DISTINCT SELECT paciente_cpf FROM lista_cpfs
-)
-
--- 2.6) TABELA PRELIMINAR
-SELECT
-  u.paciente_cpf AS cpf,
-  IF(p.paciente_cpf IS NOT NULL, 1, 0) AS criterio1_prescricao,
-  IF(c.paciente_cpf IS NOT NULL, 1, 0) AS criterio2_cid_ativo,
-  IF(l.paciente_cpf IS NOT NULL, 1, 0) AS criterio3_lista_hanseniase,
-  pm.medicamentos_prescritos_mais_recente,
-  li.num_sinan,
-  COALESCE(li.id_cnes_lista, ei.id_cnes_ea) AS id_cnes,
-  COALESCE(ei.unidade_nome_ea, CONCAT('CNES ', COALESCE(li.id_cnes_lista, ei.id_cnes_ea))) AS unidade_cadastro,
-  (IF(p.paciente_cpf IS NOT NULL, 1, 0) + IF(c.paciente_cpf IS NOT NULL, 1, 0) + IF(l.paciente_cpf IS NOT NULL, 1, 0)) AS soma_criterios
-FROM universo u
-LEFT JOIN presc_cpfs     p      USING (paciente_cpf)
-LEFT JOIN cid_cpfs       c      USING (paciente_cpf)
-LEFT JOIN lista_cpfs     l      USING (paciente_cpf)
-LEFT JOIN presc_meds_ult pm     USING (paciente_cpf)
-LEFT JOIN lista_info     li     USING (paciente_cpf)
-LEFT JOIN ea_info        ei     USING (paciente_cpf)
-WHERE u.paciente_cpf IS NOT NULL AND LENGTH(u.paciente_cpf) = 11;
-
--- ======================================================================
--- 7) FILTRO FINAL: Apenas APS
--- ======================================================================
--- (Exemplo simplificado de update/filtro)
-DELETE FROM `rj-sms-sandbox.sub_pav_us._hanseniase_em_tratamento` t
-WHERE NOT EXISTS (
-  SELECT 1 FROM `rj-sms.saude_dados_mestres.estabelecimento` e
-  WHERE SAFE_CAST(t.id_cnes AS STRING) = SAFE_CAST(e.id_cnes AS STRING)
-  AND e.tipo_sms_agrupado = 'APS'
-);
-                            </code></pre>
+                            <div id="block-hanseniase" class="code-block">
+                                <pre
+                                    class="m-0"><code id="code-hanseniase" class="language-sql shadow-none rounded-none">Carregando query...</code></pre>
+                            </div>
                         </div>
                     </div>
-
+                    
                     <!-- Conteúdo: Dicionário -->
                     <div id="dicionario" class="tab-content">
                         <div class="overflow-x-auto">
@@ -730,6 +476,7 @@ WHERE NOT EXISTS (
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sql.min.js"></script>
     <script src="../scripts/global.js"></script>
+    <script src="../scripts/bi_aps_haseniase.js"></script>
 </body>
 
 </html>

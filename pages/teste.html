@@ -10,9 +10,52 @@
     <!-- Highlight.js para sintaxe SQL -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <!-- CSS Global (assumindo caminho relativo padrão) -->
     <link rel="stylesheet" href="../styles/global.css">
 
-    <link rel="stylesheet" href="../styles/bi_aps_siaps.css">
+    <!-- Estilos Inline (Pode mover para ../styles/bi_aps_siaps.css se preferir) -->
+    <style>
+        .sql-selector-wrapper {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .sql-select {
+            appearance: none;
+            background-color: #1e293b;
+            /* slate-800 */
+            color: #e2e8f0;
+            /* slate-200 */
+            padding: 0.5rem 2.5rem 0.5rem 1rem;
+            border-radius: 0.375rem;
+            border: 1px solid #334155;
+            /* slate-700 */
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .sql-select:hover {
+            border-color: #38bdf8;
+            /* sky-400 */
+        }
+
+        .sql-select:focus {
+            ring: 2px solid #38bdf8;
+            border-color: #38bdf8;
+        }
+
+        .select-arrow {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #94a3b8;
+        }
+    </style>
 </head>
 
 <body class="bg-slate-50 text-slate-800 h-screen flex overflow-hidden">
@@ -117,18 +160,7 @@
                                         class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
                                         Query - Hanseníase
                                     </a>
-                                    <a href="./pages/emConstrucao.html"
-                                        class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
-                                        Query - Turbeculose
-                                    </a>
-                                    <a href="./pages/emConstrucao.html"
-                                        class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
-                                        Query - Sífilis
-                                    </a>
-                                    <a href="./pages/emConstrucao.html"
-                                        class="submenu-link block py-2 text-sm text-slate-400 hover:text-sky-400 transition-colors">
-                                        Query - Hepatites
-                                    </a>
+                                    <!-- Outros links... -->
                                 </div>
                             </div>
                         </div>
@@ -230,12 +262,13 @@
 
                 <!-- Resumo / Metadados -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                    <div
+                        class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm relative overflow-hidden group">
                         <p class="text-xs text-slate-500 uppercase font-semibold mb-1">Tabela Final</p>
-                        <!-- Adicionado ID 'tableNameDisplay' e classes de transição -->
+                        <!-- ID 'tableNameDisplay' e classes de transição -->
                         <div class="relative">
                             <p id="tableNameDisplay"
-                                class="text-slate-800 font-medium text-[10px] break-all font-mono bg-slate-50 p-1 rounded transition-opacity duration-500 opacity-100">
+                                class="text-slate-800 font-medium text-xs break-all font-mono bg-slate-50 p-1 rounded transition-opacity duration-500 opacity-100">
                                 rj-sms-sandbox.sub_pav_us.siaps_consolidado
                             </p>
                             <!-- Indicador visual de animação ativa -->
@@ -413,7 +446,9 @@
 
                     <!-- Conteúdo: SQL -->
                     <div id="sql" class="tab-content p-0">
+                        <!-- Barra de Ferramentas do SQL -->
                         <div class="bg-slate-900 border-b border-slate-700 p-4 flex items-center justify-between">
+                            <!-- Seletor de Código -->
                             <div class="sql-selector-wrapper">
                                 <select id="codeSelector" onchange="switchCodeBlock()" class="sql-select">
                                     <option value="esf">SIAPS - ESF (Saúde da Família)</option>
@@ -429,23 +464,155 @@
                             </button>
                         </div>
 
+                        <!-- Bloco 1: ESF -->
                         <div id="block-esf" class="code-block">
-                            <pre
-                                class="m-0"><code id="code-esf" class="language-sql shadow-none rounded-none">Carregando query...</code></pre>
+                            <pre class="m-0"><code class="language-sql shadow-none rounded-none">
+CREATE OR REPLACE TABLE `rj-sms-sandbox.sub_pav_us.siaps_consolidado` AS
+WITH
+  unpivot_all AS (
+  -- ==================================================
+    -- Componente 1: Mais Acesso (Tabela: SIAPS_c1_maisacesso_equipes)
+    -- ==================================================
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Mais Acesso' AS Componente, 'num' AS Tipo_Indicador, jan_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes` UNION ALL
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Mais Acesso' AS Componente, 'den' AS Tipo_Indicador, jan_2025_den AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes` UNION ALL
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Mais Acesso' AS Componente, 'percent' AS Tipo_Indicador, jan_2025_percent AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes` UNION ALL
+    
+    -- (Omitidos meses intermediários para brevidade do visualizador, lógica se repete para Fev-Nov)
+    
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-12-01' AS Periodo, 'Mais Acesso' AS Componente, 'num' AS Tipo_Indicador, dez_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes` UNION ALL
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-12-01' AS Periodo, 'Mais Acesso' AS Componente, 'den' AS Tipo_Indicador, dez_2025_den AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes` UNION ALL
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-12-01' AS Periodo, 'Mais Acesso' AS Componente, 'percent' AS Tipo_Indicador, dez_2025_percent AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes` UNION ALL
+
+  -- ==================================================
+    -- Componente 2: Resolutividade (Tabela: SIAPS_c2_resolutividade_equipes)
+    -- ==================================================
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Resolutividade' AS Componente, 'num' AS Tipo_Indicador, jan_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_c2_resolutividade_equipes` UNION ALL
+    -- ... (Repetição da estrutura para C2)
+
+  -- ==================================================
+    -- Componente 3: Coordenação do Cuidado (Tabela: SIAPS_c3_coordenacao_cuidado_equipes)
+    -- ==================================================
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Coordenação do Cuidado' AS Componente, 'num' AS Tipo_Indicador, jan_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_c3_coordenacao_cuidado_equipes` UNION ALL
+    -- ... (Repetição da estrutura para C3)
+
+  -- ==================================================
+    -- Componente 4: Carteira de Serviços (Tabela: SIAPS_c4_carteira_servicos_equipes)
+    -- ==================================================
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Carteira de Serviços' AS Componente, 'num' AS Tipo_Indicador, jan_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_c4_carteira_servicos_equipes` UNION ALL
+    -- ... (Repetição da estrutura para C4)
+
+  -- ==================================================
+    -- Componente 5: Sustentabilidade (Tabela: SIAPS_c5_sustentabilidade_equipes)
+    -- ==================================================
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Sustentabilidade' AS Componente, 'num' AS Tipo_Indicador, jan_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_c5_sustentabilidade_equipes` UNION ALL
+    -- ... (Repetição da estrutura para C5)
+
+  -- ==================================================
+    -- Componente 6: Responsabilidade Sanitária (Tabela: SIAPS_c6_responsabilidade_sanitaria_equipes)
+    -- ==================================================
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Responsabilidade Sanitária' AS Componente, 'num' AS Tipo_Indicador, jan_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_c6_responsabilidade_sanitaria_equipes` UNION ALL
+    -- ... (Repetição da estrutura para C6)
+
+  -- ==================================================
+    -- Componente 7: Prevenção do Câncer (Tabela: SIAPS_c7_prevencao_cancer_equipes)
+    -- Obs: Este componente possui subtipos (e, f, g...)
+    -- ==================================================
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-12-01' AS Periodo, 'Prevenção do câncer' AS Componente, 'e_c7' AS Tipo_Indicador, dez_2025_e AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes` UNION ALL
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-12-01' AS Periodo, 'Prevenção do câncer' AS Componente, 'f_c7' AS Tipo_Indicador, dez_2025_f AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes` UNION ALL
+    -- ... (Outros subtipos g, h, i)
+
+  -- ==================================================
+    -- Componente 8: Satisfação do Usuário (Tabela: SIAPS_c8_satisfacao_usuario_equipes)
+    -- ==================================================
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Satisfação do Usuário' AS Componente, 'num' AS Tipo_Indicador, jan_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_c8_satisfacao_usuario_equipes` UNION ALL
+    -- ... (Repetição da estrutura para C8)
+  )
+SELECT * FROM unpivot_all
+WHERE Valor IS NOT NULL;
+                            </code></pre>
                         </div>
 
+                        <!-- Bloco 2: ESB -->
                         <div id="block-esb" class="code-block hidden">
-                            <pre
-                                class="m-0"><code id="code-esb" class="language-sql shadow-none rounded-none">Carregando query...</code></pre>
+                            <pre class="m-0"><code class="language-sql shadow-none rounded-none">
+CREATE OR REPLACE TABLE `rj-sms-sandbox.sub_pav_us.siaps_consolidado_esb` AS
+WITH
+  unpivot_all AS (
+  -- ==================================================
+    -- Componente 1: 1º consulta programada (Tabela: SIAPS_ESB_b1_1a_cons_prog_equipes)
+    -- ==================================================
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, '1º consulta programada' AS Componente, 'num_B1' AS Tipo_Indicador, jan_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_ESB_b1_1a_cons_prog_equipes` UNION ALL
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, '1º consulta programada' AS Componente, 'den_B1' AS Tipo_Indicador, jan_2025_den AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_ESB_b1_1a_cons_prog_equipes` UNION ALL
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, '1º consulta programada' AS Componente, 'percent_B1' AS Tipo_Indicador, jan_2025_percent AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_ESB_b1_1a_cons_prog_equipes` UNION ALL
+    
+  -- ==================================================
+    -- Componente 2: Razão Tratamentos Concluídos (Tabela: SIAPS_ESB_b2_razao_trat_concluidos_equipes)
+    -- ==================================================
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Razão Tratamentos Concluídos' AS Componente, 'num_B2' AS Tipo_Indicador, jan_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_ESB_b2_razao_trat_concluidos_equipes` UNION ALL
+    -- ...
+
+  -- ==================================================
+    -- Componente 3: Proporção de exodontias (Tabela: SIAPS_ESB_b3_prop_exodontias_equipes)
+    -- ==================================================
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Proporção de exodontias' AS Componente, 'num_B3' AS Tipo_Indicador, jan_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_ESB_b3_prop_exodontias_equipes` UNION ALL
+    -- ...
+
+  -- ==================================================
+    -- Componente 4: Atendimentos de urgência (Tabela: SIAPS_ESB_b4_atend_urgencia_equipes)
+    -- ==================================================
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Atendimentos de urgência' AS Componente, 'num_B4' AS Tipo_Indicador, jan_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_ESB_b4_atend_urgencia_equipes` UNION ALL
+    -- ...
+
+  -- ==================================================
+    -- Componente 5: Supervisão TSB (Tabela: SIAPS_ESB_b5_supervisao_tsb_equipes)
+    -- ==================================================
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Supervisão TSB' AS Componente, 'num_B5' AS Tipo_Indicador, jan_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_ESB_b5_supervisao_tsb_equipes` UNION ALL
+    -- ...
+
+  -- ==================================================
+    -- Componente 6: Tratamento restaurador (Tabela: SIAPS_ESB_b6_trat_restaurador_atraumatico_equipes)
+    -- ==================================================
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Tratamento restaurador' AS Componente, 'num_B6' AS Tipo_Indicador, jan_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_ESB_b6_trat_restaurador_atraumatico_equipes` UNION ALL
+    -- ...
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-12-01' AS Periodo, 'Tratamento restaurador' AS Componente, 'den_B6' AS Tipo_Indicador, dez_2025_den AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_ESB_b6_trat_restaurador_atraumatico_equipes`
+  )
+SELECT * FROM unpivot_all WHERE Valor IS NOT NULL;
+                            </code></pre>
                         </div>
 
+                        <!-- Bloco 3: eMulti -->
                         <div id="block-emulti" class="code-block hidden">
-                            <pre
-                                class="m-0"><code id="code-emulti" class="language-sql shadow-none rounded-none">Carregando query...</code></pre>
+                            <pre class="m-0"><code class="language-sql shadow-none rounded-none">
+CREATE OR REPLACE TABLE `rj-sms-sandbox.sub_pav_us.siaps_consolidado_emulti` AS
+WITH
+  unpivot_all AS (
+  -- ==================================================
+    -- Componente 2: Ações Interprofissionais (Tabela: SIAPS_EMULTI_m2_acoes_interprofissionais_emulti_equipes)
+    -- ==================================================
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Ações Interprofissionais' AS Componente, 'num_M2' AS Tipo_Indicador, jan_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_EMULTI_m2_acoes_interprofissionais_emulti_equipes` UNION ALL
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Ações Interprofissionais' AS Componente, 'den_M2' AS Tipo_Indicador, jan_2025_den AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_EMULTI_m2_acoes_interprofissionais_emulti_equipes` UNION ALL
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Ações Interprofissionais' AS Componente, 'percent_M2' AS Tipo_Indicador, jan_2025_percent AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_EMULTI_m2_acoes_interprofissionais_emulti_equipes` UNION ALL
+    
+    -- (Meses intermediários omitidos)
+
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-12-01' AS Periodo, 'Ações Interprofissionais' AS Componente, 'num_M2' AS Tipo_Indicador, dez_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_EMULTI_m2_acoes_interprofissionais_emulti_equipes` UNION ALL
+    -- ...
+
+  -- ==================================================
+    -- Componente 1: Atendimentos eMulti (Tabela: SIAPS_EMULTI_m1_med_atend_emulti_por_pessoa_equipes)
+    -- ==================================================
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Atendimentos eMulti' AS Componente, 'num_M1' AS Tipo_Indicador, jan_2025_num AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_EMULTI_m1_med_atend_emulti_por_pessoa_equipes` UNION ALL
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Atendimentos eMulti' AS Componente, 'den_M1' AS Tipo_Indicador, jan_2025_den AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_EMULTI_m1_med_atend_emulti_por_pessoa_equipes` UNION ALL
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-01-01' AS Periodo, 'Atendimentos eMulti' AS Componente, 'media_M1' AS Tipo_Indicador, jan_2025_media AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_EMULTI_m1_med_atend_emulti_por_pessoa_equipes` UNION ALL
+    -- ...
+    SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '2025-12-01' AS Periodo, 'Atendimentos eMulti' AS Componente, 'den_M1' AS Tipo_Indicador, dez_2025_den AS Valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_EMULTI_m1_med_atend_emulti_por_pessoa_equipes`
+  )
+SELECT * FROM unpivot_all WHERE Valor IS NOT NULL;
+                            </code></pre>
                         </div>
                     </div>
 
-                    <!-- Conteúdo: Dicionário -->
+                    <!-- Conteúdo: Dicionário (AGORA NA POSIÇÃO CORRETA) -->
                     <div id="dicionario" class="tab-content">
                         <div class="overflow-x-auto">
                             <table class="w-full text-left text-sm text-slate-600">
@@ -482,8 +649,7 @@
                                     </tr>
                                     <tr class="hover:bg-slate-50">
                                         <td class="px-6 py-3 font-mono text-xs text-blue-600 bg-blue-50/30">
-                                            Tipo_Indicador
-                                        </td>
+                                            Tipo_Indicador</td>
                                         <td class="px-6 py-3 text-xs">STRING</td>
                                         <td class="px-6 py-3">Tipo do valor: Numerador ('num'), Denominador ('den') ou
                                             Percentual/Média.</td>
@@ -498,11 +664,11 @@
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
-                </div>
+                </div> <!-- Fechamento correto da div principal das abas -->
 
             </div>
+        </div>
     </main>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -511,8 +677,104 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sql.min.js"></script>
     <script src="../scripts/global.js"></script>
 
-    <!-- Script Específico para esta página (Troca de Código) -->
-    <script src="../scripts/bi_aps_siaps.js"></script>
+    <!-- Script Específico para esta página (Troca de Código e Animação) -->
+    <script>
+        // Mapeamento das tabelas
+        const tableNamesMap = {
+            'esf': 'rj-sms-sandbox.sub_pav_us.siaps_consolidado',
+            'esb': 'rj-sms-sandbox.sub_pav_us.siaps_consolidado_esb',
+            'emulti': 'rj-sms-sandbox.sub_pav_us.siaps_consolidado_emulti'
+        };
+
+        // Lista para rotação
+        const rotationList = [
+            'rj-sms-sandbox.sub_pav_us.siaps_consolidado',
+            'rj-sms-sandbox.sub_pav_us.siaps_consolidado_esb',
+            'rj-sms-sandbox.sub_pav_us.siaps_consolidado_emulti'
+        ];
+
+        let currentIndex = 0;
+        let rotationInterval = null;
+        let isRotating = true; // Flag para saber se a rotação está ativa
+
+        // Função para atualizar o texto com fade
+        function updateTableDisplay(text) {
+            const display = document.getElementById('tableNameDisplay');
+            // Fade Out
+            display.style.opacity = '0';
+            // Aguarda a transição
+            setTimeout(() => {
+                display.innerText = text;
+                // Fade In
+                display.style.opacity = '1';
+            }, 500); // 500ms corresponde a duration-500 do CSS
+        }
+
+        // Inicia o loop automático
+        function startRotation() {
+            if (rotationInterval) clearInterval(rotationInterval);
+            isRotating = true;
+            document.getElementById('animationIndicator').classList.remove('hidden'); // Mostra indicador
+
+            rotationInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % rotationList.length;
+                updateTableDisplay(rotationList[currentIndex]);
+            }, 4000); // Troca a cada 4 segundos
+        }
+
+        // Para o loop manual
+        function stopRotation() {
+            if (rotationInterval) {
+                clearInterval(rotationInterval);
+                rotationInterval = null;
+            }
+            isRotating = false;
+            document.getElementById('animationIndicator').classList.add('hidden'); // Esconde indicador
+        }
+
+        // Iniciar rotação ao carregar
+        window.addEventListener('load', startRotation);
+
+        // Função para copiar o código SQL visível
+        function copyActiveSql() {
+            const selector = document.getElementById('codeSelector');
+            const activeId = 'block-' + selector.value;
+            const codeBlock = document.querySelector('#' + activeId + ' code');
+
+            if (codeBlock) {
+                const text = codeBlock.innerText;
+                navigator.clipboard.writeText(text).then(() => {
+                    const btn = document.querySelector('button[onclick="copyActiveSql()"]');
+                    const originalHtml = btn.innerHTML;
+                    btn.innerHTML = '<i class="ph ph-check"></i> Copiado!';
+                    setTimeout(() => {
+                        btn.innerHTML = originalHtml;
+                    }, 2000);
+                });
+            }
+        }
+
+        // Função chamada ao mudar o select: PARA a rotação e mostra a tabela correta
+        function switchCodeBlock() {
+            const selector = document.getElementById('codeSelector');
+            const value = selector.value;
+
+            // 1. Para a rotação automática se o usuário interagir
+            stopRotation();
+
+            // 2. Alternar Blocos de Código
+            document.querySelectorAll('.code-block').forEach(el => {
+                el.classList.add('hidden');
+            });
+            const activeBlock = document.getElementById('block-' + value);
+            if (activeBlock) {
+                activeBlock.classList.remove('hidden');
+            }
+
+            // 3. Atualizar Nome da Tabela imediatamente para corresponder ao código
+            updateTableDisplay(tableNamesMap[value]);
+        }
+    </script>
 </body>
 
 </html>

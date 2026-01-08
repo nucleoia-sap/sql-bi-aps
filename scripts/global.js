@@ -35,6 +35,146 @@ function toggleSubmenu(submenuId, chevronId) {
     }
 }
 
+function toggleAccordion(id) {
+    const content = document.getElementById(id);
+    const btn = document.querySelector(`button[onclick="toggleAccordion('${id}')"]`);
+    const isOpen = content.classList.contains('open');
+
+    if (isOpen) {
+        content.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+    } else {
+        content.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+    }
+}
+
+/* ==========================================================================
+   Módulo de Carregamento de SQL (Adicione isso ao seu global.js)
+   ========================================================================== */
+
+// Função principal que recebe a lista de arquivos da página e inicia o carregamento
+window.initSqlLoader = function (filesConfig) {
+    // Itera sobre cada par chave: url (ex: 'esf': '../caminho.sql')
+    for (const [key, url] of Object.entries(filesConfig)) {
+        loadSqlFile(key, url);
+    }
+};
+
+// Função interna para buscar e renderizar o arquivo
+async function loadSqlFile(key, url) {
+    const codeElement = document.getElementById(`code-${key}`);
+
+    // Feedback visual de carregamento
+    if (codeElement) codeElement.textContent = "-- Carregando query do servidor...";
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Erro ao carregar ${url}`);
+
+        const text = await response.text();
+
+        if (codeElement) {
+            // 1. Injeta o texto
+            codeElement.textContent = text;
+
+            // 2. Garante a classe necessária para o Highlight.js
+            codeElement.className = 'language-sql shadow-none rounded-none';
+
+            // 3. Reseta status de highlight anterior
+            codeElement.removeAttribute('data-highlighted');
+
+            // 4. Aplica a coloração se a biblioteca estiver carregada
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightElement(codeElement);
+            }
+        }
+    } catch (error) {
+        console.error(error);
+        if (codeElement) {
+            codeElement.textContent = `-- Erro ao carregar arquivo SQL.\n-- URL: ${url}\n-- Verifique se está usando Live Server.`;
+            codeElement.className = 'language-sql'; // Aplica cor básica mesmo no erro
+            if (typeof hljs !== 'undefined') hljs.highlightElement(codeElement);
+        }
+    }
+}
+
+// Função para copiar o código (agora global)
+window.copyActiveSql = function () {
+    const selector = document.getElementById('codeSelector');
+    if (!selector) return;
+
+    const activeId = 'code-' + selector.value;
+    const codeBlock = document.getElementById(activeId);
+
+    if (codeBlock) {
+        const text = codeBlock.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            // Procura o botão de copiar (pode ajustar o seletor se tiver mais botões)
+            const btn = document.querySelector('button[onclick="copyActiveSql()"]');
+            if (btn) {
+                const originalHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="ph ph-check"></i> Copiado!';
+                setTimeout(() => {
+                    btn.innerHTML = originalHtml;
+                }, 2000);
+            }
+        });
+    }
+};
+
+// Função Genérica: Copia qualquer elemento passado por ID (Para páginas com query única)
+window.copyElementId = function (elementId, btnElement) {
+    const codeBlock = document.getElementById(elementId);
+
+    if (codeBlock) {
+        const text = codeBlock.innerText;
+
+        navigator.clipboard.writeText(text).then(() => {
+            // Se o botão for passado (this), faz a animação nele
+            if (btnElement) {
+                const originalHtml = btnElement.innerHTML;
+                btnElement.innerHTML = '<i class="ph ph-check"></i> Copiado!';
+                setTimeout(() => {
+                    btnElement.innerHTML = originalHtml;
+                }, 2000);
+            }
+        });
+    } else {
+        console.error(`Elemento com id '${elementId}' não encontrado.`);
+    }
+};
+
+// Mantenha a copyActiveSql para as páginas complexas (SIAPS)
+window.copyActiveSql = function () {
+    const selector = document.getElementById('codeSelector');
+    if (!selector) return; // Proteção caso não exista select
+
+    const activeId = 'code-' + selector.value;
+    // Reutiliza a função genérica que acabamos de criar, buscando o botão automaticamente
+    const btn = document.querySelector('button[onclick="copyActiveSql()"]');
+    copyElementId(activeId, btn);
+};
+
+// Função para alternar abas (agora global)
+window.switchCodeBlock = function () {
+    const selector = document.getElementById('codeSelector');
+    if (!selector) return;
+
+    const value = selector.value;
+
+    // Esconde todos os blocos com a classe .code-block
+    document.querySelectorAll('.code-block').forEach(el => {
+        el.classList.add('hidden');
+    });
+
+    // Mostra apenas o selecionado
+    const activeBlock = document.getElementById('block-' + value);
+    if (activeBlock) {
+        activeBlock.classList.remove('hidden');
+    }
+};
+
 
 /* ==========================================================================
    FUNÇÕES DE DOCUMENTAÇÃO (ABAS E COPY)
@@ -113,7 +253,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Versão do Sistema
     const versaoSistema = document.getElementById('versao-sistema');
     if (versaoSistema) {
-        versaoSistema.innerText = 'v1.0.2';
+        versaoSistema.innerText = 'v1.0.3';
     }
 
 

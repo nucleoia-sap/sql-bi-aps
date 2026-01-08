@@ -96,16 +96,46 @@ body {
     transform: translateX(calc(-100% + 140px));
 }
 
+
+
 /* =========================================
    COMPONENTE: Cards (Usado na Home/Index)
    ========================================= */
 .doc-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .doc-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* =========================================
+    ANIMAÇÃO DE ACORDEÃO (CORRIGIDA)
+========================================= */
+.accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-out;
+    /* Importante: Nenhuma borda ou padding aqui para evitar vazamento visual */
+}
+
+.accordion-content.open {
+    grid-template-rows: 1fr;
+}
+
+.accordion-inner {
+    overflow: hidden;
+    /* CORREÇÃO: min-height: 0 é essencial para o CSS Grid animation funcionar perfeitamente com conteúdos internos */
+    min-height: 0;
+}
+
+.accordion-chevron {
+    transition: transform 0.3s ease;
+}
+
+.accordion-btn[aria-expanded="true"] .accordion-chevron {
+    transform: rotate(180deg);
 }
 
 /* =========================================
