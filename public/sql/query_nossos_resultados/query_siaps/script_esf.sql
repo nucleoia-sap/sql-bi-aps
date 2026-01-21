@@ -1,0 +1,10404 @@
+CREATE
+OR REPLACE TABLE `rj-sms-sandbox.sub_pav_us.siaps_consolidado` AS
+WITH
+    unpivot_all AS (
+        -- ==================================================
+        -- Componente 1: Mais Acesso (Tabela: SIAPS_c1_maisacesso_equipes)
+        -- ==================================================
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'num' AS Tipo_Indicador,
+            jan_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'den' AS Tipo_Indicador,
+            jan_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'percent' AS Tipo_Indicador,
+            jan_2025_percent AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'num' AS Tipo_Indicador,
+            fev_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'den' AS Tipo_Indicador,
+            fev_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'percent' AS Tipo_Indicador,
+            fev_2025_percent AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'num' AS Tipo_Indicador,
+            mar_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'den' AS Tipo_Indicador,
+            mar_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'percent' AS Tipo_Indicador,
+            mar_2025_percent AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'num' AS Tipo_Indicador,
+            abr_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'den' AS Tipo_Indicador,
+            abr_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'percent' AS Tipo_Indicador,
+            abr_2025_percent AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'num' AS Tipo_Indicador,
+            mai_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'den' AS Tipo_Indicador,
+            mai_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'percent' AS Tipo_Indicador,
+            mai_2025_percent AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'num' AS Tipo_Indicador,
+            jun_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'den' AS Tipo_Indicador,
+            jun_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'percent' AS Tipo_Indicador,
+            jun_2025_percent AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'num' AS Tipo_Indicador,
+            jul_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'den' AS Tipo_Indicador,
+            jul_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'percent' AS Tipo_Indicador,
+            jul_2025_percent AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'num' AS Tipo_Indicador,
+            ago_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'den' AS Tipo_Indicador,
+            ago_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'percent' AS Tipo_Indicador,
+            ago_2025_percent AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'num' AS Tipo_Indicador,
+            set_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'den' AS Tipo_Indicador,
+            set_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'percent' AS Tipo_Indicador,
+            set_2025_percent AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'num' AS Tipo_Indicador,
+            out_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'den' AS Tipo_Indicador,
+            out_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'percent' AS Tipo_Indicador,
+            out_2025_percent AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'num' AS Tipo_Indicador,
+            nov_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'den' AS Tipo_Indicador,
+            nov_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'percent' AS Tipo_Indicador,
+            nov_2025_percent AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'num' AS Tipo_Indicador,
+            dez_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'den' AS Tipo_Indicador,
+            dez_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Mais Acesso' AS Componente,
+            'percent' AS Tipo_Indicador,
+            dez_2025_percent AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c1_maisacesso_equipes`
+        UNION ALL
+        -- ==================================================
+        -- Componente 2: Desempenho Infantil (Tabela: SIAPS_c2_des_inf_equipes)
+        -- ==================================================
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'a_c2' AS Tipo_Indicador,
+            jan_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'b_c2' AS Tipo_Indicador,
+            jan_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'c_c2' AS Tipo_Indicador,
+            jan_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'd_c2' AS Tipo_Indicador,
+            jan_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'e_c2' AS Tipo_Indicador,
+            jan_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'num_c2' AS Tipo_Indicador,
+            jan_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'den_c2' AS Tipo_Indicador,
+            jan_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'razao_c2' AS Tipo_Indicador,
+            jan_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'a_c2' AS Tipo_Indicador,
+            fev_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'b_c2' AS Tipo_Indicador,
+            fev_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'c_c2' AS Tipo_Indicador,
+            fev_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'd_c2' AS Tipo_Indicador,
+            fev_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'e_c2' AS Tipo_Indicador,
+            fev_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'num_c2' AS Tipo_Indicador,
+            fev_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'den_c2' AS Tipo_Indicador,
+            fev_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'razao_c2' AS Tipo_Indicador,
+            fev_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'a_c2' AS Tipo_Indicador,
+            mar_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'b_c2' AS Tipo_Indicador,
+            mar_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'c_c2' AS Tipo_Indicador,
+            mar_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'd_c2' AS Tipo_Indicador,
+            mar_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'e_c2' AS Tipo_Indicador,
+            mar_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'num_c2' AS Tipo_Indicador,
+            mar_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'den_c2' AS Tipo_Indicador,
+            mar_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'razao_c2' AS Tipo_Indicador,
+            mar_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'a_c2' AS Tipo_Indicador,
+            abr_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'b_c2' AS Tipo_Indicador,
+            abr_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'c_c2' AS Tipo_Indicador,
+            abr_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'd_c2' AS Tipo_Indicador,
+            abr_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'e_c2' AS Tipo_Indicador,
+            abr_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'num_c2' AS Tipo_Indicador,
+            abr_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'den_c2' AS Tipo_Indicador,
+            abr_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'razao_c2' AS Tipo_Indicador,
+            abr_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'a_c2' AS Tipo_Indicador,
+            mai_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'b_c2' AS Tipo_Indicador,
+            mai_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'c_c2' AS Tipo_Indicador,
+            mai_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'd_c2' AS Tipo_Indicador,
+            mai_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'e_c2' AS Tipo_Indicador,
+            mai_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'num_c2' AS Tipo_Indicador,
+            mai_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'den_c2' AS Tipo_Indicador,
+            mai_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'razao_c2' AS Tipo_Indicador,
+            mai_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'a_c2' AS Tipo_Indicador,
+            jun_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'b_c2' AS Tipo_Indicador,
+            jun_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'c_c2' AS Tipo_Indicador,
+            jun_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'd_c2' AS Tipo_Indicador,
+            jun_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'e_c2' AS Tipo_Indicador,
+            jun_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'num_c2' AS Tipo_Indicador,
+            jun_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'den_c2' AS Tipo_Indicador,
+            jun_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'razao_c2' AS Tipo_Indicador,
+            jun_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'a_c2' AS Tipo_Indicador,
+            jul_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'b_c2' AS Tipo_Indicador,
+            jul_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'c_c2' AS Tipo_Indicador,
+            jul_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'd_c2' AS Tipo_Indicador,
+            jul_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'e_c2' AS Tipo_Indicador,
+            jul_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'num_c2' AS Tipo_Indicador,
+            jul_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'den_c2' AS Tipo_Indicador,
+            jul_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'razao_c2' AS Tipo_Indicador,
+            jul_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'a_c2' AS Tipo_Indicador,
+            ago_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'b_c2' AS Tipo_Indicador,
+            ago_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'c_c2' AS Tipo_Indicador,
+            ago_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'd_c2' AS Tipo_Indicador,
+            ago_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'e_c2' AS Tipo_Indicador,
+            ago_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'num_c2' AS Tipo_Indicador,
+            ago_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'den_c2' AS Tipo_Indicador,
+            ago_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'razao_c2' AS Tipo_Indicador,
+            ago_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'a_c2' AS Tipo_Indicador,
+            set_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'b_c2' AS Tipo_Indicador,
+            set_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'c_c2' AS Tipo_Indicador,
+            set_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'd_c2' AS Tipo_Indicador,
+            set_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'e_c2' AS Tipo_Indicador,
+            set_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'num_c2' AS Tipo_Indicador,
+            set_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'den_c2' AS Tipo_Indicador,
+            set_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'razao_c2' AS Tipo_Indicador,
+            set_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'a_c2' AS Tipo_Indicador,
+            out_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'b_c2' AS Tipo_Indicador,
+            out_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'c_c2' AS Tipo_Indicador,
+            out_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'd_c2' AS Tipo_Indicador,
+            out_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'e_c2' AS Tipo_Indicador,
+            out_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'num_c2' AS Tipo_Indicador,
+            out_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'den_c2' AS Tipo_Indicador,
+            out_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'razao_c2' AS Tipo_Indicador,
+            out_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'a_c2' AS Tipo_Indicador,
+            nov_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'b_c2' AS Tipo_Indicador,
+            nov_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'c_c2' AS Tipo_Indicador,
+            nov_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'd_c2' AS Tipo_Indicador,
+            nov_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'e_c2' AS Tipo_Indicador,
+            nov_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'num_c2' AS Tipo_Indicador,
+            nov_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'den_c2' AS Tipo_Indicador,
+            nov_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'razao_c2' AS Tipo_Indicador,
+            nov_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'a_c2' AS Tipo_Indicador,
+            dez_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'b_c2' AS Tipo_Indicador,
+            dez_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'c_c2' AS Tipo_Indicador,
+            dez_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'd_c2' AS Tipo_Indicador,
+            dez_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'e_c2' AS Tipo_Indicador,
+            dez_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'num_c2' AS Tipo_Indicador,
+            dez_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'den_c2' AS Tipo_Indicador,
+            dez_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Desenvolvimento Infantil' AS Componente,
+            'razao_c2' AS Tipo_Indicador,
+            dez_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c2_des_inf_equipes`
+        UNION ALL
+        -- ==================================================
+        -- Componente 3: Gestantes (Tabela: SIAPS_c3_gestantes_equipes)
+        -- ==================================================
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'a_c3' AS Tipo_Indicador,
+            jan_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'b_c3' AS Tipo_Indicador,
+            jan_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'c_c3' AS Tipo_Indicador,
+            jan_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'd_c3' AS Tipo_Indicador,
+            jan_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'e_c3' AS Tipo_Indicador,
+            jan_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'f_c3' AS Tipo_Indicador,
+            jan_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'g_c3' AS Tipo_Indicador,
+            jan_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'h_c3' AS Tipo_Indicador,
+            jan_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'i_c3' AS Tipo_Indicador,
+            jan_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'j_c3' AS Tipo_Indicador,
+            jan_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'k_c3' AS Tipo_Indicador,
+            jan_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'num_c3' AS Tipo_Indicador,
+            jan_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'den_c3' AS Tipo_Indicador,
+            jan_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'razao_c3' AS Tipo_Indicador,
+            jan_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'a_c3' AS Tipo_Indicador,
+            fev_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'b_c3' AS Tipo_Indicador,
+            fev_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'c_c3' AS Tipo_Indicador,
+            fev_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'd_c3' AS Tipo_Indicador,
+            fev_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'e_c3' AS Tipo_Indicador,
+            fev_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'f_c3' AS Tipo_Indicador,
+            fev_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'g_c3' AS Tipo_Indicador,
+            fev_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'h_c3' AS Tipo_Indicador,
+            fev_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'i_c3' AS Tipo_Indicador,
+            fev_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'j_c3' AS Tipo_Indicador,
+            fev_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'k_c3' AS Tipo_Indicador,
+            fev_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'num_c3' AS Tipo_Indicador,
+            fev_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'den_c3' AS Tipo_Indicador,
+            fev_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'razao_c3' AS Tipo_Indicador,
+            fev_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'a_c3' AS Tipo_Indicador,
+            mar_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'b_c3' AS Tipo_Indicador,
+            mar_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'c_c3' AS Tipo_Indicador,
+            mar_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'd_c3' AS Tipo_Indicador,
+            mar_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'e_c3' AS Tipo_Indicador,
+            mar_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'f_c3' AS Tipo_Indicador,
+            mar_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'g_c3' AS Tipo_Indicador,
+            mar_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'h_c3' AS Tipo_Indicador,
+            mar_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'i_c3' AS Tipo_Indicador,
+            mar_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'j_c3' AS Tipo_Indicador,
+            mar_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'k_c3' AS Tipo_Indicador,
+            mar_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'num_c3' AS Tipo_Indicador,
+            mar_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'den_c3' AS Tipo_Indicador,
+            mar_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'razao_c3' AS Tipo_Indicador,
+            mar_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'a_c3' AS Tipo_Indicador,
+            abr_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'b_c3' AS Tipo_Indicador,
+            abr_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'c_c3' AS Tipo_Indicador,
+            abr_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'd_c3' AS Tipo_Indicador,
+            abr_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'e_c3' AS Tipo_Indicador,
+            abr_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'f_c3' AS Tipo_Indicador,
+            abr_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'g_c3' AS Tipo_Indicador,
+            abr_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'h_c3' AS Tipo_Indicador,
+            abr_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'i_c3' AS Tipo_Indicador,
+            abr_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'j_c3' AS Tipo_Indicador,
+            abr_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'k_c3' AS Tipo_Indicador,
+            abr_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'num_c3' AS Tipo_Indicador,
+            abr_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'den_c3' AS Tipo_Indicador,
+            abr_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'razao_c3' AS Tipo_Indicador,
+            abr_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'a_c3' AS Tipo_Indicador,
+            mai_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'b_c3' AS Tipo_Indicador,
+            mai_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'c_c3' AS Tipo_Indicador,
+            mai_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'd_c3' AS Tipo_Indicador,
+            mai_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'e_c3' AS Tipo_Indicador,
+            mai_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'f_c3' AS Tipo_Indicador,
+            mai_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'g_c3' AS Tipo_Indicador,
+            mai_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'h_c3' AS Tipo_Indicador,
+            mai_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'i_c3' AS Tipo_Indicador,
+            mai_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'j_c3' AS Tipo_Indicador,
+            mai_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'k_c3' AS Tipo_Indicador,
+            mai_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'num_c3' AS Tipo_Indicador,
+            mai_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'den_c3' AS Tipo_Indicador,
+            mai_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'razao_c3' AS Tipo_Indicador,
+            mai_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'a_c3' AS Tipo_Indicador,
+            jun_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'b_c3' AS Tipo_Indicador,
+            jun_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'c_c3' AS Tipo_Indicador,
+            jun_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'd_c3' AS Tipo_Indicador,
+            jun_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'e_c3' AS Tipo_Indicador,
+            jun_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'f_c3' AS Tipo_Indicador,
+            jun_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'g_c3' AS Tipo_Indicador,
+            jun_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'h_c3' AS Tipo_Indicador,
+            jun_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'i_c3' AS Tipo_Indicador,
+            jun_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'j_c3' AS Tipo_Indicador,
+            jun_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'k_c3' AS Tipo_Indicador,
+            jun_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'num_c3' AS Tipo_Indicador,
+            jun_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'den_c3' AS Tipo_Indicador,
+            jun_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'razao_c3' AS Tipo_Indicador,
+            jun_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'a_c3' AS Tipo_Indicador,
+            jul_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'b_c3' AS Tipo_Indicador,
+            jul_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'c_c3' AS Tipo_Indicador,
+            jul_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'd_c3' AS Tipo_Indicador,
+            jul_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'e_c3' AS Tipo_Indicador,
+            jul_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'f_c3' AS Tipo_Indicador,
+            jul_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'g_c3' AS Tipo_Indicador,
+            jul_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'h_c3' AS Tipo_Indicador,
+            jul_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'i_c3' AS Tipo_Indicador,
+            jul_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'j_c3' AS Tipo_Indicador,
+            jul_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'k_c3' AS Tipo_Indicador,
+            jul_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'num_c3' AS Tipo_Indicador,
+            jul_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'den_c3' AS Tipo_Indicador,
+            jul_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'razao_c3' AS Tipo_Indicador,
+            jul_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'a_c3' AS Tipo_Indicador,
+            ago_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'b_c3' AS Tipo_Indicador,
+            ago_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'c_c3' AS Tipo_Indicador,
+            ago_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'd_c3' AS Tipo_Indicador,
+            ago_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'e_c3' AS Tipo_Indicador,
+            ago_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'f_c3' AS Tipo_Indicador,
+            ago_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'g_c3' AS Tipo_Indicador,
+            ago_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'h_c3' AS Tipo_Indicador,
+            ago_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'i_c3' AS Tipo_Indicador,
+            ago_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'j_c3' AS Tipo_Indicador,
+            ago_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'k_c3' AS Tipo_Indicador,
+            ago_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'num_c3' AS Tipo_Indicador,
+            ago_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'den_c3' AS Tipo_Indicador,
+            ago_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'razao_c3' AS Tipo_Indicador,
+            ago_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'a_c3' AS Tipo_Indicador,
+            set_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'b_c3' AS Tipo_Indicador,
+            set_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'c_c3' AS Tipo_Indicador,
+            set_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'd_c3' AS Tipo_Indicador,
+            set_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'e_c3' AS Tipo_Indicador,
+            set_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'f_c3' AS Tipo_Indicador,
+            set_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'g_c3' AS Tipo_Indicador,
+            set_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'h_c3' AS Tipo_Indicador,
+            set_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'i_c3' AS Tipo_Indicador,
+            set_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'j_c3' AS Tipo_Indicador,
+            set_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'k_c3' AS Tipo_Indicador,
+            set_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'num_c3' AS Tipo_Indicador,
+            set_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'den_c3' AS Tipo_Indicador,
+            set_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'razao_c3' AS Tipo_Indicador,
+            set_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'a_c3' AS Tipo_Indicador,
+            out_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'b_c3' AS Tipo_Indicador,
+            out_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'c_c3' AS Tipo_Indicador,
+            out_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'd_c3' AS Tipo_Indicador,
+            out_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'e_c3' AS Tipo_Indicador,
+            out_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'f_c3' AS Tipo_Indicador,
+            out_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'g_c3' AS Tipo_Indicador,
+            out_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'h_c3' AS Tipo_Indicador,
+            out_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'i_c3' AS Tipo_Indicador,
+            out_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'j_c3' AS Tipo_Indicador,
+            out_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'k_c3' AS Tipo_Indicador,
+            out_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'num_c3' AS Tipo_Indicador,
+            out_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'den_c3' AS Tipo_Indicador,
+            out_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'razao_c3' AS Tipo_Indicador,
+            out_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'a_c3' AS Tipo_Indicador,
+            nov_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'b_c3' AS Tipo_Indicador,
+            nov_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'c_c3' AS Tipo_Indicador,
+            nov_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'd_c3' AS Tipo_Indicador,
+            nov_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'e_c3' AS Tipo_Indicador,
+            nov_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'f_c3' AS Tipo_Indicador,
+            nov_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'g_c3' AS Tipo_Indicador,
+            nov_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'h_c3' AS Tipo_Indicador,
+            nov_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'i_c3' AS Tipo_Indicador,
+            nov_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'j_c3' AS Tipo_Indicador,
+            nov_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'k_c3' AS Tipo_Indicador,
+            nov_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'num_c3' AS Tipo_Indicador,
+            nov_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'den_c3' AS Tipo_Indicador,
+            nov_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'razao_c3' AS Tipo_Indicador,
+            nov_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'a_c3' AS Tipo_Indicador,
+            dez_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'b_c3' AS Tipo_Indicador,
+            dez_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'c_c3' AS Tipo_Indicador,
+            dez_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'd_c3' AS Tipo_Indicador,
+            dez_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'e_c3' AS Tipo_Indicador,
+            dez_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'f_c3' AS Tipo_Indicador,
+            dez_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'g_c3' AS Tipo_Indicador,
+            dez_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'h_c3' AS Tipo_Indicador,
+            dez_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'i_c3' AS Tipo_Indicador,
+            dez_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'j_c3' AS Tipo_Indicador,
+            dez_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'k_c3' AS Tipo_Indicador,
+            dez_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'num_c3' AS Tipo_Indicador,
+            dez_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'den_c3' AS Tipo_Indicador,
+            dez_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Gestantes' AS Componente,
+            'razao_c3' AS Tipo_Indicador,
+            dez_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c3_gestantes_equipes`
+        UNION ALL
+        -- ==================================================
+        -- Componente 4: Diabetes Mellitus (Tabela: SIAPS_c4_dm_equipes)
+        -- ==================================================
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'a_c4' AS Tipo_Indicador,
+            jan_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'b_c4' AS Tipo_Indicador,
+            jan_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'c_c4' AS Tipo_Indicador,
+            jan_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'd_c4' AS Tipo_Indicador,
+            jan_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'e_c4' AS Tipo_Indicador,
+            jan_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'f_c4' AS Tipo_Indicador,
+            jan_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'num_c4' AS Tipo_Indicador,
+            jan_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'den_c4' AS Tipo_Indicador,
+            jan_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'razao_c4' AS Tipo_Indicador,
+            jan_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'a_c4' AS Tipo_Indicador,
+            fev_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'b_c4' AS Tipo_Indicador,
+            fev_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'c_c4' AS Tipo_Indicador,
+            fev_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'd_c4' AS Tipo_Indicador,
+            fev_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'e_c4' AS Tipo_Indicador,
+            fev_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'f_c4' AS Tipo_Indicador,
+            fev_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'num_c4' AS Tipo_Indicador,
+            fev_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'den_c4' AS Tipo_Indicador,
+            fev_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'razao_c4' AS Tipo_Indicador,
+            fev_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'a_c4' AS Tipo_Indicador,
+            mar_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'b_c4' AS Tipo_Indicador,
+            mar_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'c_c4' AS Tipo_Indicador,
+            mar_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'd_c4' AS Tipo_Indicador,
+            mar_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'e_c4' AS Tipo_Indicador,
+            mar_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'f_c4' AS Tipo_Indicador,
+            mar_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'num_c4' AS Tipo_Indicador,
+            mar_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'den_c4' AS Tipo_Indicador,
+            mar_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'razao_c4' AS Tipo_Indicador,
+            mar_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'a_c4' AS Tipo_Indicador,
+            abr_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'b_c4' AS Tipo_Indicador,
+            abr_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'c_c4' AS Tipo_Indicador,
+            abr_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'd_c4' AS Tipo_Indicador,
+            abr_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'e_c4' AS Tipo_Indicador,
+            abr_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'f_c4' AS Tipo_Indicador,
+            abr_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'num_c4' AS Tipo_Indicador,
+            abr_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'den_c4' AS Tipo_Indicador,
+            abr_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'razao_c4' AS Tipo_Indicador,
+            abr_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'a_c4' AS Tipo_Indicador,
+            mai_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'b_c4' AS Tipo_Indicador,
+            mai_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'c_c4' AS Tipo_Indicador,
+            mai_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'd_c4' AS Tipo_Indicador,
+            mai_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'e_c4' AS Tipo_Indicador,
+            mai_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'f_c4' AS Tipo_Indicador,
+            mai_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'num_c4' AS Tipo_Indicador,
+            mai_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'den_c4' AS Tipo_Indicador,
+            mai_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'razao_c4' AS Tipo_Indicador,
+            mai_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'a_c4' AS Tipo_Indicador,
+            jun_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'b_c4' AS Tipo_Indicador,
+            jun_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'c_c4' AS Tipo_Indicador,
+            jun_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'd_c4' AS Tipo_Indicador,
+            jun_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'e_c4' AS Tipo_Indicador,
+            jun_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'f_c4' AS Tipo_Indicador,
+            jun_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'num_c4' AS Tipo_Indicador,
+            jun_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'den_c4' AS Tipo_Indicador,
+            jun_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'razao_c4' AS Tipo_Indicador,
+            jun_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'a_c4' AS Tipo_Indicador,
+            jul_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'b_c4' AS Tipo_Indicador,
+            jul_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'c_c4' AS Tipo_Indicador,
+            jul_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'd_c4' AS Tipo_Indicador,
+            jul_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'e_c4' AS Tipo_Indicador,
+            jul_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'f_c4' AS Tipo_Indicador,
+            jul_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'num_c4' AS Tipo_Indicador,
+            jul_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'den_c4' AS Tipo_Indicador,
+            jul_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'razao_c4' AS Tipo_Indicador,
+            jul_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'a_c4' AS Tipo_Indicador,
+            ago_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'b_c4' AS Tipo_Indicador,
+            ago_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'c_c4' AS Tipo_Indicador,
+            ago_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'd_c4' AS Tipo_Indicador,
+            ago_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'e_c4' AS Tipo_Indicador,
+            ago_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'f_c4' AS Tipo_Indicador,
+            ago_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'num_c4' AS Tipo_Indicador,
+            ago_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'den_c4' AS Tipo_Indicador,
+            ago_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'razao_c4' AS Tipo_Indicador,
+            ago_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'a_c4' AS Tipo_Indicador,
+            set_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'b_c4' AS Tipo_Indicador,
+            set_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'c_c4' AS Tipo_Indicador,
+            set_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'd_c4' AS Tipo_Indicador,
+            set_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'e_c4' AS Tipo_Indicador,
+            set_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'f_c4' AS Tipo_Indicador,
+            set_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'num_c4' AS Tipo_Indicador,
+            set_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'den_c4' AS Tipo_Indicador,
+            set_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'razao_c4' AS Tipo_Indicador,
+            set_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'a_c4' AS Tipo_Indicador,
+            out_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'b_c4' AS Tipo_Indicador,
+            out_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'c_c4' AS Tipo_Indicador,
+            out_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'd_c4' AS Tipo_Indicador,
+            out_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'e_c4' AS Tipo_Indicador,
+            out_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'f_c4' AS Tipo_Indicador,
+            out_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'num_c4' AS Tipo_Indicador,
+            out_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'den_c4' AS Tipo_Indicador,
+            out_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'razao_c4' AS Tipo_Indicador,
+            out_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'a_c4' AS Tipo_Indicador,
+            nov_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'b_c4' AS Tipo_Indicador,
+            nov_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'c_c4' AS Tipo_Indicador,
+            nov_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'd_c4' AS Tipo_Indicador,
+            nov_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'e_c4' AS Tipo_Indicador,
+            nov_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'f_c4' AS Tipo_Indicador,
+            nov_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'num_c4' AS Tipo_Indicador,
+            nov_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'den_c4' AS Tipo_Indicador,
+            nov_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'razao_c4' AS Tipo_Indicador,
+            nov_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'a_c4' AS Tipo_Indicador,
+            dez_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'b_c4' AS Tipo_Indicador,
+            dez_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'c_c4' AS Tipo_Indicador,
+            dez_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'd_c4' AS Tipo_Indicador,
+            dez_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'e_c4' AS Tipo_Indicador,
+            dez_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'f_c4' AS Tipo_Indicador,
+            dez_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'num_c4' AS Tipo_Indicador,
+            dez_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'den_c4' AS Tipo_Indicador,
+            dez_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Diabetes Mellitus' AS Componente,
+            'razao_c4' AS Tipo_Indicador,
+            dez_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c4_dm_equipes`
+        UNION ALL
+        -- ==================================================
+        -- Componente 5: Hipertensão Arterial (Tabela: SIAPS_c5_has_equipes)
+        -- ==================================================
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'a_c5' AS Tipo_Indicador,
+            jan_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'b_c5' AS Tipo_Indicador,
+            jan_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'c_c5' AS Tipo_Indicador,
+            jan_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'd_c5' AS Tipo_Indicador,
+            jan_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'num_c5' AS Tipo_Indicador,
+            jan_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'den_c5' AS Tipo_Indicador,
+            jan_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'razao_c5' AS Tipo_Indicador,
+            jan_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'a_c5' AS Tipo_Indicador,
+            fev_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'b_c5' AS Tipo_Indicador,
+            fev_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'c_c5' AS Tipo_Indicador,
+            fev_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'd_c5' AS Tipo_Indicador,
+            fev_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'num_c5' AS Tipo_Indicador,
+            fev_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'den_c5' AS Tipo_Indicador,
+            fev_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'razao_c5' AS Tipo_Indicador,
+            fev_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'a_c5' AS Tipo_Indicador,
+            mar_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'b_c5' AS Tipo_Indicador,
+            mar_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'c_c5' AS Tipo_Indicador,
+            mar_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'd_c5' AS Tipo_Indicador,
+            mar_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'num_c5' AS Tipo_Indicador,
+            mar_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'den_c5' AS Tipo_Indicador,
+            mar_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'razao_c5' AS Tipo_Indicador,
+            mar_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'a_c5' AS Tipo_Indicador,
+            abr_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'b_c5' AS Tipo_Indicador,
+            abr_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'c_c5' AS Tipo_Indicador,
+            abr_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'd_c5' AS Tipo_Indicador,
+            abr_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'num_c5' AS Tipo_Indicador,
+            abr_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'den_c5' AS Tipo_Indicador,
+            abr_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'razao_c5' AS Tipo_Indicador,
+            abr_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'a_c5' AS Tipo_Indicador,
+            mai_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'b_c5' AS Tipo_Indicador,
+            mai_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'c_c5' AS Tipo_Indicador,
+            mai_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'd_c5' AS Tipo_Indicador,
+            mai_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'num_c5' AS Tipo_Indicador,
+            mai_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'den_c5' AS Tipo_Indicador,
+            mai_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'razao_c5' AS Tipo_Indicador,
+            mai_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'a_c5' AS Tipo_Indicador,
+            jun_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'b_c5' AS Tipo_Indicador,
+            jun_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'c_c5' AS Tipo_Indicador,
+            jun_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'd_c5' AS Tipo_Indicador,
+            jun_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'num_c5' AS Tipo_Indicador,
+            jun_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'den_c5' AS Tipo_Indicador,
+            jun_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'razao_c5' AS Tipo_Indicador,
+            jun_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'a_c5' AS Tipo_Indicador,
+            jul_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'b_c5' AS Tipo_Indicador,
+            jul_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'c_c5' AS Tipo_Indicador,
+            jul_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'd_c5' AS Tipo_Indicador,
+            jul_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'num_c5' AS Tipo_Indicador,
+            jul_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'den_c5' AS Tipo_Indicador,
+            jul_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'razao_c5' AS Tipo_Indicador,
+            jul_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'a_c5' AS Tipo_Indicador,
+            ago_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'b_c5' AS Tipo_Indicador,
+            ago_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'c_c5' AS Tipo_Indicador,
+            ago_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'd_c5' AS Tipo_Indicador,
+            ago_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'num_c5' AS Tipo_Indicador,
+            ago_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'den_c5' AS Tipo_Indicador,
+            ago_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'razao_c5' AS Tipo_Indicador,
+            ago_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'a_c5' AS Tipo_Indicador,
+            set_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'b_c5' AS Tipo_Indicador,
+            set_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'c_c5' AS Tipo_Indicador,
+            set_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'd_c5' AS Tipo_Indicador,
+            set_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'num_c5' AS Tipo_Indicador,
+            set_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'den_c5' AS Tipo_Indicador,
+            set_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'razao_c5' AS Tipo_Indicador,
+            set_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'a_c5' AS Tipo_Indicador,
+            out_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'b_c5' AS Tipo_Indicador,
+            out_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'c_c5' AS Tipo_Indicador,
+            out_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'd_c5' AS Tipo_Indicador,
+            out_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'num_c5' AS Tipo_Indicador,
+            out_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'den_c5' AS Tipo_Indicador,
+            out_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'razao_c5' AS Tipo_Indicador,
+            out_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'a_c5' AS Tipo_Indicador,
+            nov_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'b_c5' AS Tipo_Indicador,
+            nov_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'c_c5' AS Tipo_Indicador,
+            nov_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'd_c5' AS Tipo_Indicador,
+            nov_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'num_c5' AS Tipo_Indicador,
+            nov_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'den_c5' AS Tipo_Indicador,
+            nov_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'razao_c5' AS Tipo_Indicador,
+            nov_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'a_c5' AS Tipo_Indicador,
+            dez_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'b_c5' AS Tipo_Indicador,
+            dez_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'c_c5' AS Tipo_Indicador,
+            dez_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'd_c5' AS Tipo_Indicador,
+            dez_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'num_c5' AS Tipo_Indicador,
+            dez_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'den_c5' AS Tipo_Indicador,
+            dez_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Hipertensão' AS Componente,
+            'razao_c5' AS Tipo_Indicador,
+            dez_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c5_has_equipes`
+        UNION ALL
+        -- ==================================================
+        -- Componente 6: Idosos (Tabela: SIAPS_c6_idosos_equipes)
+        -- ==================================================
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Idosos' AS Componente,
+            'a_c6' AS Tipo_Indicador,
+            jan_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Idosos' AS Componente,
+            'b_c6' AS Tipo_Indicador,
+            jan_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Idosos' AS Componente,
+            'c_c6' AS Tipo_Indicador,
+            jan_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Idosos' AS Componente,
+            'd_c6' AS Tipo_Indicador,
+            jan_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Idosos' AS Componente,
+            'num_c6' AS Tipo_Indicador,
+            jan_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Idosos' AS Componente,
+            'den_c6' AS Tipo_Indicador,
+            jan_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Idosos' AS Componente,
+            'razao_c6' AS Tipo_Indicador,
+            jan_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Idosos' AS Componente,
+            'a_c6' AS Tipo_Indicador,
+            fev_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Idosos' AS Componente,
+            'b_c6' AS Tipo_Indicador,
+            fev_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Idosos' AS Componente,
+            'c_c6' AS Tipo_Indicador,
+            fev_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Idosos' AS Componente,
+            'd_c6' AS Tipo_Indicador,
+            fev_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Idosos' AS Componente,
+            'num_c6' AS Tipo_Indicador,
+            fev_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Idosos' AS Componente,
+            'den_c6' AS Tipo_Indicador,
+            fev_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Idosos' AS Componente,
+            'razao_c6' AS Tipo_Indicador,
+            fev_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Idosos' AS Componente,
+            'a_c6' AS Tipo_Indicador,
+            mar_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Idosos' AS Componente,
+            'b_c6' AS Tipo_Indicador,
+            mar_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Idosos' AS Componente,
+            'c_c6' AS Tipo_Indicador,
+            mar_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Idosos' AS Componente,
+            'd_c6' AS Tipo_Indicador,
+            mar_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Idosos' AS Componente,
+            'num_c6' AS Tipo_Indicador,
+            mar_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Idosos' AS Componente,
+            'den_c6' AS Tipo_Indicador,
+            mar_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Idosos' AS Componente,
+            'razao_c6' AS Tipo_Indicador,
+            mar_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Idosos' AS Componente,
+            'a_c6' AS Tipo_Indicador,
+            abr_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Idosos' AS Componente,
+            'b_c6' AS Tipo_Indicador,
+            abr_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Idosos' AS Componente,
+            'c_c6' AS Tipo_Indicador,
+            abr_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Idosos' AS Componente,
+            'd_c6' AS Tipo_Indicador,
+            abr_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Idosos' AS Componente,
+            'num_c6' AS Tipo_Indicador,
+            abr_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Idosos' AS Componente,
+            'den_c6' AS Tipo_Indicador,
+            abr_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Idosos' AS Componente,
+            'razao_c6' AS Tipo_Indicador,
+            abr_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Idosos' AS Componente,
+            'a_c6' AS Tipo_Indicador,
+            mai_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Idosos' AS Componente,
+            'b_c6' AS Tipo_Indicador,
+            mai_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Idosos' AS Componente,
+            'c_c6' AS Tipo_Indicador,
+            mai_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Idosos' AS Componente,
+            'd_c6' AS Tipo_Indicador,
+            mai_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Idosos' AS Componente,
+            'num_c6' AS Tipo_Indicador,
+            mai_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Idosos' AS Componente,
+            'den_c6' AS Tipo_Indicador,
+            mai_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Idosos' AS Componente,
+            'razao_c6' AS Tipo_Indicador,
+            mai_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Idosos' AS Componente,
+            'a_c6' AS Tipo_Indicador,
+            jun_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Idosos' AS Componente,
+            'b_c6' AS Tipo_Indicador,
+            jun_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Idosos' AS Componente,
+            'c_c6' AS Tipo_Indicador,
+            jun_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Idosos' AS Componente,
+            'd_c6' AS Tipo_Indicador,
+            jun_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Idosos' AS Componente,
+            'num_c6' AS Tipo_Indicador,
+            jun_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Idosos' AS Componente,
+            'den_c6' AS Tipo_Indicador,
+            jun_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Idosos' AS Componente,
+            'razao_c6' AS Tipo_Indicador,
+            jun_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Idosos' AS Componente,
+            'a_c6' AS Tipo_Indicador,
+            jul_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Idosos' AS Componente,
+            'b_c6' AS Tipo_Indicador,
+            jul_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Idosos' AS Componente,
+            'c_c6' AS Tipo_Indicador,
+            jul_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Idosos' AS Componente,
+            'd_c6' AS Tipo_Indicador,
+            jul_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Idosos' AS Componente,
+            'num_c6' AS Tipo_Indicador,
+            jul_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Idosos' AS Componente,
+            'den_c6' AS Tipo_Indicador,
+            jul_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Idosos' AS Componente,
+            'razao_c6' AS Tipo_Indicador,
+            jul_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Idosos' AS Componente,
+            'a_c6' AS Tipo_Indicador,
+            ago_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Idosos' AS Componente,
+            'b_c6' AS Tipo_Indicador,
+            ago_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Idosos' AS Componente,
+            'c_c6' AS Tipo_Indicador,
+            ago_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Idosos' AS Componente,
+            'd_c6' AS Tipo_Indicador,
+            ago_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Idosos' AS Componente,
+            'num_c6' AS Tipo_Indicador,
+            ago_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Idosos' AS Componente,
+            'den_c6' AS Tipo_Indicador,
+            ago_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Idosos' AS Componente,
+            'razao_c6' AS Tipo_Indicador,
+            ago_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Idosos' AS Componente,
+            'a_c6' AS Tipo_Indicador,
+            set_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Idosos' AS Componente,
+            'b_c6' AS Tipo_Indicador,
+            set_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Idosos' AS Componente,
+            'c_c6' AS Tipo_Indicador,
+            set_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Idosos' AS Componente,
+            'd_c6' AS Tipo_Indicador,
+            set_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Idosos' AS Componente,
+            'num_c6' AS Tipo_Indicador,
+            set_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Idosos' AS Componente,
+            'den_c6' AS Tipo_Indicador,
+            set_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Idosos' AS Componente,
+            'razao_c6' AS Tipo_Indicador,
+            set_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Idosos' AS Componente,
+            'a_c6' AS Tipo_Indicador,
+            set_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Idosos' AS Componente,
+            'b_c6' AS Tipo_Indicador,
+            set_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Idosos' AS Componente,
+            'c_c6' AS Tipo_Indicador,
+            set_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Idosos' AS Componente,
+            'd_c6' AS Tipo_Indicador,
+            set_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Idosos' AS Componente,
+            'num_c6' AS Tipo_Indicador,
+            set_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Idosos' AS Componente,
+            'den_c6' AS Tipo_Indicador,
+            set_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Idosos' AS Componente,
+            'razao_c6' AS Tipo_Indicador,
+            set_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Idosos' AS Componente,
+            'a_c6' AS Tipo_Indicador,
+            out_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Idosos' AS Componente,
+            'b_c6' AS Tipo_Indicador,
+            out_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Idosos' AS Componente,
+            'c_c6' AS Tipo_Indicador,
+            out_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Idosos' AS Componente,
+            'd_c6' AS Tipo_Indicador,
+            out_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Idosos' AS Componente,
+            'num_c6' AS Tipo_Indicador,
+            out_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Idosos' AS Componente,
+            'den_c6' AS Tipo_Indicador,
+            out_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Idosos' AS Componente,
+            'razao_c6' AS Tipo_Indicador,
+            out_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Idosos' AS Componente,
+            'a_c6' AS Tipo_Indicador,
+            nov_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Idosos' AS Componente,
+            'b_c6' AS Tipo_Indicador,
+            nov_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Idosos' AS Componente,
+            'c_c6' AS Tipo_Indicador,
+            nov_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Idosos' AS Componente,
+            'd_c6' AS Tipo_Indicador,
+            nov_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Idosos' AS Componente,
+            'num_c6' AS Tipo_Indicador,
+            nov_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Idosos' AS Componente,
+            'den_c6' AS Tipo_Indicador,
+            nov_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Idosos' AS Componente,
+            'razao_c6' AS Tipo_Indicador,
+            nov_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Idosos' AS Componente,
+            'a_c6' AS Tipo_Indicador,
+            dez_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Idosos' AS Componente,
+            'b_c6' AS Tipo_Indicador,
+            dez_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Idosos' AS Componente,
+            'c_c6' AS Tipo_Indicador,
+            dez_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Idosos' AS Componente,
+            'd_c6' AS Tipo_Indicador,
+            dez_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Idosos' AS Componente,
+            'num_c6' AS Tipo_Indicador,
+            dez_2025_num AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Idosos' AS Componente,
+            'den_c6' AS Tipo_Indicador,
+            dez_2025_den AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Idosos' AS Componente,
+            'razao_c6' AS Tipo_Indicador,
+            dez_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c6_idosos_equipes`
+        UNION ALL
+        -- ==================================================
+        -- Componente 7: Prevenção Câncer (Tabela: SIAPS_c7_prevencao_cancer_equipes)
+        -- ==================================================
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'a_c7' AS Tipo_Indicador,
+            jan_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'b_c7' AS Tipo_Indicador,
+            jan_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'c_c7' AS Tipo_Indicador,
+            jan_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'd_c7' AS Tipo_Indicador,
+            jan_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'e_c7' AS Tipo_Indicador,
+            jan_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'f_c7' AS Tipo_Indicador,
+            jan_2025_f AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'g_c7' AS Tipo_Indicador,
+            jan_2025_g AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'h_c7' AS Tipo_Indicador,
+            jan_2025_h AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-01-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'razao_c7' AS Tipo_Indicador,
+            jan_2025_Razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'a_c7' AS Tipo_Indicador,
+            fev_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'b_c7' AS Tipo_Indicador,
+            fev_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'c_c7' AS Tipo_Indicador,
+            fev_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'd_c7' AS Tipo_Indicador,
+            fev_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'e_c7' AS Tipo_Indicador,
+            fev_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'f_c7' AS Tipo_Indicador,
+            fev_2025_f AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'g_c7' AS Tipo_Indicador,
+            fev_2025_g AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'h_c7' AS Tipo_Indicador,
+            fev_2025_h AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-02-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'razao_c7' AS Tipo_Indicador,
+            fev_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'a_c7' AS Tipo_Indicador,
+            mar_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'b_c7' AS Tipo_Indicador,
+            mar_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'c_c7' AS Tipo_Indicador,
+            mar_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'd_c7' AS Tipo_Indicador,
+            mar_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'e_c7' AS Tipo_Indicador,
+            mar_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'f_c7' AS Tipo_Indicador,
+            mar_2025_f AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'g_c7' AS Tipo_Indicador,
+            mar_2025_g AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'h_c7' AS Tipo_Indicador,
+            mar_2025_h AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-03-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'razao_c7' AS Tipo_Indicador,
+            mar_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'a_c7' AS Tipo_Indicador,
+            abr_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'b_c7' AS Tipo_Indicador,
+            abr_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'c_c7' AS Tipo_Indicador,
+            abr_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'd_c7' AS Tipo_Indicador,
+            abr_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'e_c7' AS Tipo_Indicador,
+            abr_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'f_c7' AS Tipo_Indicador,
+            abr_2025_f AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'g_c7' AS Tipo_Indicador,
+            abr_2025_g AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'h_c7' AS Tipo_Indicador,
+            abr_2025_h AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-04-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'razao_c7' AS Tipo_Indicador,
+            abr_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'a_c7' AS Tipo_Indicador,
+            mai_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'b_c7' AS Tipo_Indicador,
+            mai_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'c_c7' AS Tipo_Indicador,
+            mai_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'd_c7' AS Tipo_Indicador,
+            mai_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'e_c7' AS Tipo_Indicador,
+            mai_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'f_c7' AS Tipo_Indicador,
+            mai_2025_f AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'g_c7' AS Tipo_Indicador,
+            mai_2025_g AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'h_c7' AS Tipo_Indicador,
+            mai_2025_h AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-05-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'razao_c7' AS Tipo_Indicador,
+            mai_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'a_c7' AS Tipo_Indicador,
+            jun_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'b_c7' AS Tipo_Indicador,
+            jun_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'c_c7' AS Tipo_Indicador,
+            jun_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'd_c7' AS Tipo_Indicador,
+            jun_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'e_c7' AS Tipo_Indicador,
+            jun_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'f_c7' AS Tipo_Indicador,
+            jun_2025_f AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'g_c7' AS Tipo_Indicador,
+            jun_2025_g AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'h_c7' AS Tipo_Indicador,
+            jun_2025_h AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-06-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'razao_c7' AS Tipo_Indicador,
+            jun_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'a_c7' AS Tipo_Indicador,
+            jul_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'b_c7' AS Tipo_Indicador,
+            jul_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'c_c7' AS Tipo_Indicador,
+            jul_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'd_c7' AS Tipo_Indicador,
+            jul_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'e_c7' AS Tipo_Indicador,
+            jul_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'f_c7' AS Tipo_Indicador,
+            jul_2025_f AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'g_c7' AS Tipo_Indicador,
+            jul_2025_g AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'h_c7' AS Tipo_Indicador,
+            jul_2025_h AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-07-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'razao_c7' AS Tipo_Indicador,
+            jul_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'a_c7' AS Tipo_Indicador,
+            ago_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'b_c7' AS Tipo_Indicador,
+            ago_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'c_c7' AS Tipo_Indicador,
+            ago_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'd_c7' AS Tipo_Indicador,
+            ago_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'e_c7' AS Tipo_Indicador,
+            ago_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'f_c7' AS Tipo_Indicador,
+            ago_2025_f AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'g_c7' AS Tipo_Indicador,
+            ago_2025_g AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'h_c7' AS Tipo_Indicador,
+            ago_2025_h AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-08-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'razao_c7' AS Tipo_Indicador,
+            ago_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'a_c7' AS Tipo_Indicador,
+            set_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'b_c7' AS Tipo_Indicador,
+            set_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'c_c7' AS Tipo_Indicador,
+            set_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'd_c7' AS Tipo_Indicador,
+            set_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'e_c7' AS Tipo_Indicador,
+            set_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'f_c7' AS Tipo_Indicador,
+            set_2025_f AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'g_c7' AS Tipo_Indicador,
+            set_2025_g AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'h_c7' AS Tipo_Indicador,
+            set_2025_h AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-09-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'razao_c7' AS Tipo_Indicador,
+            set_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'a_c7' AS Tipo_Indicador,
+            out_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'b_c7' AS Tipo_Indicador,
+            out_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'c_c7' AS Tipo_Indicador,
+            out_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'd_c7' AS Tipo_Indicador,
+            out_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'e_c7' AS Tipo_Indicador,
+            out_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'f_c7' AS Tipo_Indicador,
+            out_2025_f AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'g_c7' AS Tipo_Indicador,
+            out_2025_g AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'h_c7' AS Tipo_Indicador,
+            out_2025_h AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-10-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'razao_c7' AS Tipo_Indicador,
+            out_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'a_c7' AS Tipo_Indicador,
+            nov_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'b_c7' AS Tipo_Indicador,
+            nov_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'c_c7' AS Tipo_Indicador,
+            nov_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'd_c7' AS Tipo_Indicador,
+            nov_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'e_c7' AS Tipo_Indicador,
+            nov_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'f_c7' AS Tipo_Indicador,
+            nov_2025_f AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'g_c7' AS Tipo_Indicador,
+            nov_2025_g AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'h_c7' AS Tipo_Indicador,
+            nov_2025_h AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-11-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'razao_c7' AS Tipo_Indicador,
+            nov_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'a_c7' AS Tipo_Indicador,
+            dez_2025_a AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'b_c7' AS Tipo_Indicador,
+            dez_2025_b AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'c_c7' AS Tipo_Indicador,
+            dez_2025_c AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'd_c7' AS Tipo_Indicador,
+            dez_2025_d AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'e_c7' AS Tipo_Indicador,
+            dez_2025_e AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'f_c7' AS Tipo_Indicador,
+            dez_2025_f AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'g_c7' AS Tipo_Indicador,
+            dez_2025_g AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'h_c7' AS Tipo_Indicador,
+            dez_2025_h AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+        UNION ALL
+        SELECT
+            ine,
+            ap,
+            cnes,
+            cod_area,
+            unidade,
+            nome_equipe,
+            tipo_equipe,
+            '2025-12-01' AS Periodo,
+            'Prevenção do câncer' AS Componente,
+            'razao_c7' AS Tipo_Indicador,
+            dez_2025_razao AS Valor
+        FROM
+            `rj-sms-sandbox.sub_pav_us.SIAPS_c7_prevencao_cancer_equipes`
+    )
+SELECT
+    ine,
+    ap,
+    cnes,
+    cod_area,
+    unidade,
+    nome_equipe,
+    tipo_equipe,
+    CAST(Periodo AS DATE) AS Periodo,
+    Componente,
+    Tipo_Indicador,
+    Valor
+FROM
+    unpivot_all;

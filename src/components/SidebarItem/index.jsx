@@ -1,23 +1,32 @@
+import { useLocation, Link } from 'react-router'; // Importar hooks do Router
 import {
-    CaretDown, House, IdentificationCard, UsersThree,
-    ChartBar, ChartLineUp, Virus
+    ChartLineUpIcon,
+    ChartBarIcon,
+    UsersThreeIcon,
+    IdentificationCardIcon,
+    VirusIcon,
+    CaretDownIcon,
+    HouseIcon,
+    HandHeartIcon,
+    PulseIcon
 } from '@phosphor-icons/react';
 
-// O mapa de ícones fica aqui, pois só este componente usa
 const iconMap = {
-    "ph-house": House,
-    "ph-identification-card": IdentificationCard,
-    "ph-users-three": UsersThree,
-    "ph-chart-bar": ChartBar,
-    "ph-chart-line-up": ChartLineUp,
-    "ph-virus": Virus
+    "ph-house": HouseIcon,
+    "ph-identification-card": IdentificationCardIcon,
+    "ph-users-three": UsersThreeIcon,
+    "ph-chart-bar": ChartBarIcon,
+    "ph-chart-line-up": ChartLineUpIcon,
+    "ph-virus": VirusIcon,
+    "ph-hand-heart": HandHeartIcon,
+    "ph-pulse": PulseIcon
 };
 
 export function SidebarItem({ item, searchTerm, expandedMenus, toggleSubmenu }) {
+    const location = useLocation();
+
     // 1. Lógica de filtro (Busca)
     if (searchTerm && !item.title.toLowerCase().includes(searchTerm.toLowerCase())) {
-        // Se for submenu ou grupo, a gente não esconde direto, pois pode ter filhos que batem com a busca.
-        // (Mantendo a lógica simples anterior: se não for folha, esconde. Melhorias futuras podem vir aqui)
         if (item.type !== 'group' && item.type !== 'submenu') return null;
     }
 
@@ -67,13 +76,15 @@ export function SidebarItem({ item, searchTerm, expandedMenus, toggleSubmenu }) 
                             <span>{item.title}</span>
                         )}
                     </div>
-                    <CaretDown className={`transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
+                    <CaretDownIcon className={`transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
                 </button>
 
-                <div className={`pl-4 overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div
+                    className={`pl-4 overflow-hidden transition-all duration-500 ease-in-out 
+                    ${isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}
+                >
                     <ul className="mt-1 space-y-1 border-l border-slate-700 ml-2 pl-2">
                         {item.children?.map((subChild, idx) => (
-                            // RECURSIVIDADE: O componente chama a si mesmo para os filhos
                             <SidebarItem
                                 key={idx}
                                 item={subChild}
@@ -88,16 +99,22 @@ export function SidebarItem({ item, searchTerm, expandedMenus, toggleSubmenu }) 
         );
     }
 
-    // --- TIPO: LINK SIMPLES ---
+    // Verifica se a rota atual é igual ao path do item
+    const isActive = location.pathname === item.path;
+
     return (
         <li>
-            <a
-                href={item.path}
-                className="flex items-center gap-3 px-3 py-2 rounded-md text-sm text-slate-400 hover:text-white hover:bg-slate-800/50 transition-colors"
+            <Link
+                to={item.path}
+                className={`flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors border-r-2
+                ${isActive
+                        ? 'text-sky-400 bg-slate-800 border-sky-400 font-medium' // Estilo ATIVO
+                        : 'text-slate-400 border-transparent hover:text-white hover:bg-slate-800/50' // Estilo PADRÃO
+                    }`}
             >
-                {IconComponent && <IconComponent size={20} />}
+                {IconComponent && <IconComponent size={20} weight={isActive ? "fill" : "regular"} />}
                 {item.title}
-            </a>
+            </Link>
         </li>
     );
 }

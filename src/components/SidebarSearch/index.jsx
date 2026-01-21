@@ -1,12 +1,12 @@
 // componente responsável pela busca
 
-import { MagnifyingGlass } from '@phosphor-icons/react';
+import { MagnifyingGlassIcon } from '@phosphor-icons/react';
 
 export function SidebarSearch({ value, onChange }) {
     return (
-        <div className="p-4">
+        <div className="p-4 flex-shrink-0">
             <div className="relative">
-                <MagnifyingGlass className="absolute left-3 top-2.5 text-slate-500" size={16} />
+                <MagnifyingGlassIcon className="absolute left-3 top-2.5 text-slate-500" size={16} />
                 <input
                     type="text"
                     placeholder="Buscar query..."
