@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { HashRouter, Route, Routes } from "react-router";
 import { Home } from "../pages/Home";
 import { Query_QuemSomos } from "../pages/Query_QuemSomos";
 import { DefaultLayout } from "../layouts/DefaultLayout";
@@ -9,7 +9,7 @@ import { Building } from "../pages/Building";
 
 export const AppRouter = () => {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
 
                 <Route path="/documentacao" element={<DefaultLayout />}>
@@ -46,6 +46,6 @@ export const AppRouter = () => {
 
                     <Route path="*" element={<Building />}></Route>
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
