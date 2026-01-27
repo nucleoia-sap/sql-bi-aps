@@ -1,0 +1,32 @@
+name: Deploy Automatizado BI-APS
+
+on:
+  push:
+    branches:
+      - versao-react # Dispara o deploy sempre que houver mudança nesta branch
+
+permissions:
+  contents: write # Permite que o GitHub escreva na branch gh-pages
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # Versão estável do Node
+
+      - name: Instalar e Buildar
+        run: |
+          npm install
+          npm run build # Gera a pasta com os arquivos prontos
+
+      - name: Deploy Oficial
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist 
+          branch: gh-pages # Branch de destino do site
