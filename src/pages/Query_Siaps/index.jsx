@@ -12,7 +12,7 @@ import { DocMetadata } from '../../components/Documentation/DocMetadata';
 import { DocHeader } from '../../components/Documentation/DocHeader';
 import { DictionaryTable } from '../../components/Documentation/DicionaryTable';
 import { SqlViewer } from '../../components/Documentation/sqlViewer';
-import { RViewer } from '../../components/Documentation/rViewer';
+import { RViewer } from '../../components/Documentation/RViewer'
 
 
 
@@ -219,7 +219,7 @@ export function Query_Siaps() {
                             <CaretDownIcon size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                         </div>
                     </div>
-                    
+
                     <SqlViewer
                         filePath={`${import.meta.env.BASE_URL}sql/query_nossos_resultados/query_siaps/script_${selectedSql}.sql`}
                     />
