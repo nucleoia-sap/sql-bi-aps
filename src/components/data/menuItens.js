@@ -46,7 +46,7 @@ export const menuItems = [
                 icon: "ph-chart-line-up",
                 type: "submenu",
                 children: [
-                    { title: "Query - Sistemas de Informação", path: "/documentacao/nossos-resultados/siaps", type: "link" },
+                    { title: "Query - SIAPS", path: "/documentacao/nossos-resultados/siaps", type: "link" },
                     { title: "Query - Unidade Amiga da primeira infância (UAPI)", path: "/documentacao/nossos-resultados/uapi", type: "link" },
                     { title: "Query - Accountability", path: "/documentacao/nossos-resultados/accountabilty", type: "link" },
                     {

@@ -27,12 +27,12 @@ export function Query_Siaps() {
         'rj-sms-sandbox.sub_pav_us.siaps_consolidado_esb',
         'rj-sms-sandbox.sub_pav_us.siaps_consolidado_emulti'
     ];
-    
+
     const [currentTableIndex, setCurrentTableIndex] = useState(0);
     const [isTableVisible, setIsTableVisible] = useState(true); // Controla a opacidade
 
     // Efeito de Rotação Suave (Fade Out -> Troca Texto -> Fade In)
-    
+
     useEffect(() => {
         const interval = setInterval(() => {
             // 1. Inicia o Fade Out
@@ -41,12 +41,12 @@ export function Query_Siaps() {
             // 2. Aguarda a transição terminar (500ms) para trocar o texto
             setTimeout(() => {
                 setCurrentTableIndex((prev) => (prev + 1) % tableNames.length);
-                
+
                 // 3. Inicia o Fade In
                 setIsTableVisible(true);
-            }, 500); 
+            }, 500);
 
-        }, 4000); 
+        }, 4000);
 
         return () => clearInterval(interval);
     }, []);
@@ -207,8 +207,11 @@ export function Query_Siaps() {
                             <CaretDownIcon size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                         </div>
                     </div>
+                    
+                    <SqlViewer
+                        filePath={`${import.meta.env.BASE_URL}sql/query_nossos_resultados/query_siaps/script_${selectedSql}.sql`}
+                    />
 
-                    <SqlViewer filePath={`/sql/query_nossos_resultados/query_siaps/script_${selectedSql}.sql`} />
                 </div>
             )
         },

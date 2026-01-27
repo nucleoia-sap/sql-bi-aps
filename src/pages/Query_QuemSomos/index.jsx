@@ -104,7 +104,7 @@ export function Query_QuemSomos() {
         {
             id: 'sql',
             label: 'Script SQL',
-            content: <SqlViewer filePath="/sql/query_quem_somos/script.sql" />
+            content: <SqlViewer filePath={`${import.meta.env.BASE_URL}sql/query_quem_somos/script.sql`} />
         },
         {
             id: 'dicionario',

@@ -132,8 +132,7 @@ export function Query_Hanseniase() {
         {
             id: 'sql',
             label: 'Script SQL',
-            // Atenção ao caminho: deve ser relativo à pasta PUBLIC
-            content: <SqlViewer filePath="/sql/query_a_quem_servimos/query_hanseniase/script.sql" />
+            content: <SqlViewer filePath={`${import.meta.env.BASE_URL}sql/query_a_quem_servimos/perfil-clinico-epidemiologico/query_hanseniase/perfil_clinico_epidemiologico_hanseniase.sql`} />
         },
         {
             id: 'dicionario',
