@@ -1,8 +1,6 @@
-// src/data/menuItems.js
-
 export const menuItems = [
     {
-        title: "Visão Geral",
+        title: "VISÃO GERAL",
         icon: "ph-house",
         path: "/",
         type: "link"
@@ -12,7 +10,7 @@ export const menuItems = [
         type: "group", // Título de seção
         children: [
             {
-                title: "Query - QUEM SOMOS",
+                title: "QUEM SOMOS",
                 icon: "ph-identification-card",
                 path: "/documentacao/quem-somos",
                 type: "link"
@@ -42,7 +40,7 @@ export const menuItems = [
                 ]
             },
             {
-                title: "Nossos resultados",
+                title: "NOSSOS RESULTADOS",
                 icon: "ph-chart-line-up",
                 type: "submenu",
                 children: [

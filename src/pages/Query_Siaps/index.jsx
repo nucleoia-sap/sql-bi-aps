@@ -12,6 +12,7 @@ import { DocMetadata } from '../../components/Documentation/DocMetadata';
 import { DocHeader } from '../../components/Documentation/DocHeader';
 import { DictionaryTable } from '../../components/Documentation/DicionaryTable';
 import { SqlViewer } from '../../components/Documentation/sqlViewer';
+import { RViewer } from '../../components/Documentation/rViewer';
 
 
 
@@ -185,6 +186,17 @@ export function Query_Siaps() {
                             </ul>
                         </div>
                     </div>
+                </div>
+            )
+        },
+        {
+            id: 'r',
+            label: 'Script R',
+            content: (
+                <div>
+                    <RViewer
+                        filePath={`${import.meta.env.BASE_URL}R/query_nossos_resultados/query_siaps/script.r`}
+                    />
                 </div>
             )
         },
