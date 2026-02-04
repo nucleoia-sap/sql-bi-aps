@@ -12,8 +12,40 @@ export const menuItems = [
             {
                 title: "QUEM SOMOS",
                 icon: "ph-identification-card",
-                path: "/documentacao/quem-somos",
-                type: "link"
+                type: "submenu",
+                children: [
+                    {
+                        title: "Query - Unidades",
+                        path: "/documentacao/quem-somos/unidades",
+                        type: "link"
+                    },
+                    {
+                        title: "Query - Médicos PMM e PMPB",
+                        path: "/documentacao/quem-somos/medicos-pmm-pmpb",
+                        type: "link"
+                    },
+                    {
+                        title: "Query - Construção do Mapa",
+                        path: "/documentacao/quem-somos/construcao-do-mapa",
+                        type: "link"
+                    },
+                    {
+                        title: "Query - Informações auxiliares de gestores",
+                        path: "/documentacao/quem-somos/info-auxiliares",
+                        type: "link"
+                    },
+                    {
+                        title: "Query - Profissionais eSF",
+                        path: "/documentacao/quem-somos/profissionais-esf",
+                        type: "link"
+                    },
+                    {
+                        title: "Query - Turn over dos profissionais médicos, enfermeiros e tec. ou auxiliares de enf",
+                        path: "/documentacao/quem-somos/turnover",
+                        type: "link"
+                    },
+
+                ]
             },
             {
                 title: "A QUEM SERVIMOS",

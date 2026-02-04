@@ -6,6 +6,13 @@ import { Query_AQuemServimos } from "../pages/Query_QuemServimos";
 import { Query_Hanseniase } from "../pages/Query_Hanseniase";
 import { Query_Siaps } from "../pages/Query_Siaps";
 import { Building } from "../pages/Building";
+import { Query_Tuberculose } from "../pages/Query_QS_PCE_TB";
+import { Query_QuemSomos_Unidades } from "../pages/Query_QuemSomos_Unidades";
+import { Query_QuemSomos_Medicos_PMM_PMPB } from "../pages/Query_QuemSomos_Medicos_PMM_PMPB";
+import { Query_QuemSomos_Construcao_Do_Mapa } from "../pages/Query_QuemSomos_Construcao_Do_Mapa/index.jsx";
+import { Query_QuemSomos_InfoAuxiliares } from "../pages/Query_QuemSomos_InfoAuxiliares/index.jsx";
+import { Query_QuemSomos_Profissionais_esf } from "../pages/Query_QuemSomos_Profissionais_esf/index.jsx";
+import { Query_QuemSomos_TurnOver } from "../pages/Query_QuemSomos_TurnOver/index.jsx";
 
 export const AppRouter = () => {
     return (
@@ -14,7 +21,14 @@ export const AppRouter = () => {
 
                 <Route path="/documentacao" element={<DefaultLayout />}>
 
-                    <Route path="quem-somos" element={<Query_QuemSomos />} />
+                    <Route path="quem-somos">
+                        <Route path="unidades" element={<Query_QuemSomos_Unidades/>}></Route>
+                        <Route path="medicos-pmm-pmpb" element={<Query_QuemSomos_Medicos_PMM_PMPB />}></Route>
+                        <Route path="construcao-do-mapa" element={<Query_QuemSomos_Construcao_Do_Mapa />}></Route>
+                        <Route path="info-auxiliares" element={<Query_QuemSomos_InfoAuxiliares />}></Route>
+                        <Route path="profissionais-esf" element={<Query_QuemSomos_Profissionais_esf />}></Route>
+                        <Route path="turnover" element={<Query_QuemSomos_TurnOver/>}></Route>
+                    </Route>
 
                     {/* --- GRUPO: A QUEM SERVIMOS --- */}
                     <Route path="a-quem-servimos">
@@ -28,9 +42,9 @@ export const AppRouter = () => {
                             <Route path="hanseniase" element={<Query_Hanseniase />} />
 
                             {/* Futuras rotas */}
-                            {/* <Route path="tuberculose" element={} /> */}
+                            <Route path="tuberculose" element={<Query_Tuberculose />} />
                         </Route>
-
+                        
                     </Route>
 
                     {/* <Route path="o-que-fazemos" element={} /> */}
