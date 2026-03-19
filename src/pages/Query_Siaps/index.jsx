@@ -214,6 +214,8 @@ export function Query_Siaps() {
                             >
                                 <option value="esf">SIAPS - ESF (Saúde da Família)</option>
                                 <option value="esb">SIAPS - ESB (Saúde Bucal)</option>
+                                <option value="ecr">SIAPS - eCR</option>
+                                <option value="eapp">SIAPS - eAPP</option>
                                 <option value="emulti">SIAPS - eMulti</option>
                             </select>
                             <CaretDownIcon size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />

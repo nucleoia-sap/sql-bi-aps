@@ -1,20 +1,22 @@
 -- =========================================================================
--- DECLARAÇÃO DE VARIÁVEIS PARA AS COLUNAS
+-- DECLARAÇÃO DE VARIÁVEIS PARA AS COLUNAS (eCR)
 -- =========================================================================
-DECLARE colunas_m1,
-colunas_m2 STRING;
+DECLARE colunas_ecr_acesso,
+colunas_ecr_gestacao,
+colunas_ecr_ist,
+colunas_ecr_tuberculose STRING;
 
 -- =========================================================================
--- PASSO 1: CAPTURA DINÂMICA DE COLUNAS (Lê o esquema das tabelas eMulti)
+-- PASSO 1: CAPTURA DINÂMICA DE COLUNAS
 -- =========================================================================
 SET
-    colunas_m1 = (
+    colunas_ecr_acesso = (
         SELECT
             STRING_AGG (column_name, ', ')
         FROM
             `rj-sms-sandbox.sub_pav_us.INFORMATION_SCHEMA.COLUMNS`
         WHERE
-            table_name = 'SIAPS_EMULTI_m1_med_atend_emulti_por_pessoa_equipes'
+            table_name = 'SIAPS_eCR_cr_mais_acesso'
             AND REGEXP_CONTAINS (
                 column_name,
                 r '^(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)'
@@ -22,13 +24,41 @@ SET
     );
 
 SET
-    colunas_m2 = (
+    colunas_ecr_gestacao = (
         SELECT
             STRING_AGG (column_name, ', ')
         FROM
             `rj-sms-sandbox.sub_pav_us.INFORMATION_SCHEMA.COLUMNS`
         WHERE
-            table_name = 'SIAPS_EMULTI_m2_acoes_interprofissionais_emulti_equipes'
+            table_name = 'SIAPS_eCR_cr_gestacao'
+            AND REGEXP_CONTAINS (
+                column_name,
+                r '^(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)'
+            )
+    );
+
+SET
+    colunas_ecr_ist = (
+        SELECT
+            STRING_AGG (column_name, ', ')
+        FROM
+            `rj-sms-sandbox.sub_pav_us.INFORMATION_SCHEMA.COLUMNS`
+        WHERE
+            table_name = 'SIAPS_eCR_cr_ist'
+            AND REGEXP_CONTAINS (
+                column_name,
+                r '^(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)'
+            )
+    );
+
+SET
+    colunas_ecr_tuberculose = (
+        SELECT
+            STRING_AGG (column_name, ', ')
+        FROM
+            `rj-sms-sandbox.sub_pav_us.INFORMATION_SCHEMA.COLUMNS`
+        WHERE
+            table_name = 'SIAPS_eCR_cr_tuberculose'
             AND REGEXP_CONTAINS (
                 column_name,
                 r '^(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)'
@@ -40,23 +70,21 @@ SET
 -- =========================================================================
 EXECUTE IMMEDIATE FORMAT (
     """
-CREATE OR REPLACE TABLE `rj-sms-sandbox.sub_pav_us.siaps_consolidado_emulti` AS
+CREATE OR REPLACE TABLE `rj-sms-sandbox.sub_pav_us.siaps_consolidado_eCR` AS
 
 WITH base_unpivot AS (
-  SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, 'Atendimentos eMulti' as Componente, 'M1' as Ref, col, valor 
-  FROM `rj-sms-sandbox.sub_pav_us.SIAPS_EMULTI_m1_med_atend_emulti_por_pessoa_equipes` 
-  UNPIVOT(valor FOR col IN (%s))
-  
+  SELECT ine, ap, cnes, unidade, equipe, 'Mais_acesso_eCR' as Componente, col, valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_eCR_cr_mais_acesso` UNPIVOT(valor FOR col IN (%s))
   UNION ALL
-  
-  SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, 'Ações Interprofissionais' as Componente, 'M2' as Ref, col, valor 
-  FROM `rj-sms-sandbox.sub_pav_us.SIAPS_EMULTI_m2_acoes_interprofissionais_emulti_equipes` 
-  UNPIVOT(valor FOR col IN (%s))
+  SELECT ine, ap, cnes, unidade, equipe, 'Gestação eCR' as Componente, col, valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_eCR_cr_gestacao` UNPIVOT(valor FOR col IN (%s))
+  UNION ALL
+  SELECT ine, ap, cnes, unidade, equipe, 'IST eCR' as Componente, col, valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_eCR_cr_ist` UNPIVOT(valor FOR col IN (%s))
+  UNION ALL
+  SELECT ine, ap, cnes, unidade, equipe, 'Tuberculose eCR' as Componente, col, valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_eCR_cr_tuberculose` UNPIVOT(valor FOR col IN (%s))
 )
 
 SELECT 
-  ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, Componente,
-  -- 1. GERAÇÃO AUTOMÁTICA DA DATA (Trata jan_2025_num, etc)
+  ine, ap, cnes, unidade, equipe,
+  -- 1. TRATAMENTO DA DATA
   SAFE.PARSE_DATE('%%Y-%%m-%%d', 
     CONCAT(
       COALESCE(REGEXP_EXTRACT(col, r'\\d{4}'), '2025'), '-', 
@@ -69,18 +97,19 @@ SELECT
         WHEN REGEXP_CONTAINS(LOWER(col), 'nov') THEN '11' WHEN REGEXP_CONTAINS(LOWER(col), 'dez') THEN '12'
       END, '-01')
   ) AS Periodo,
-  -- 2. GERAÇÃO DO TIPO DE INDICADOR (Ex: num_M1, den_M2, media_M1)
+  Componente,
+  -- 2. TRATAMENTO DO TIPO INDICADOR (Substituindo 'razao' por 'percent' conforme seu padrão original)
   CASE 
-    WHEN REGEXP_CONTAINS(col, 'num') THEN CONCAT('num_', Ref)
-    WHEN REGEXP_CONTAINS(col, 'den') THEN CONCAT('den_', Ref)
-    WHEN REGEXP_CONTAINS(col, 'percent') THEN CONCAT('percent_', Ref)
-    WHEN REGEXP_CONTAINS(col, 'media') THEN CONCAT('media_', Ref)
+    WHEN REGEXP_CONTAINS(col, 'razao') THEN 'percent'
     ELSE REGEXP_EXTRACT(col, r'^(?:jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)(?:_\\d{4})?_(.*)')
   END AS Tipo_Indicador,
   -- 3. LIMPEZA E CONVERSÃO DO VALOR
   SAFE_CAST(REPLACE(REPLACE(CAST(valor AS STRING), '%%', ''), ',', '.') AS FLOAT64) AS Valor
 FROM base_unpivot
+WHERE ine != 'MRJ'
 """,
-    colunas_m1,
-    colunas_m2
+    colunas_ecr_acesso,
+    colunas_ecr_gestacao,
+    colunas_ecr_ist,
+    colunas_ecr_tuberculose
 );

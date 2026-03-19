@@ -1,26 +1,25 @@
-DECLARE colunas_b1 STRING;
+-- =========================================================================
+-- DECLARAÇÃO DE VARIÁVEIS PARA AS COLUNAS (eAPP)
+-- =========================================================================
+DECLARE col_eapp_acesso,
+col_eapp_gestacao,
+col_eapp_diab_has STRING;
 
-DECLARE colunas_b2 STRING;
-
-DECLARE colunas_b3 STRING;
-
-DECLARE colunas_b4 STRING;
-
-DECLARE colunas_b5 STRING;
-
-DECLARE colunas_b6 STRING;
+DECLARE col_eapp_ist,
+col_eapp_tuberc,
+col_eapp_cancer STRING;
 
 -- =========================================================================
--- PASSO 1: CAPTURA DINÂMICA DE COLUNAS (Lê o que o R subiu para o Data Lake)
+-- PASSO 1: CAPTURA DINÂMICA DE COLUNAS
 -- =========================================================================
 SET
-    colunas_b1 = (
+    col_eapp_acesso = (
         SELECT
             STRING_AGG (column_name, ', ')
         FROM
             `rj-sms-sandbox.sub_pav_us.INFORMATION_SCHEMA.COLUMNS`
         WHERE
-            table_name = 'SIAPS_ESB_b1_1a_cons_prog_equipes'
+            table_name = 'SIAPS_eAPP_app_mais_acesso'
             AND REGEXP_CONTAINS (
                 column_name,
                 r '^(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)'
@@ -28,13 +27,13 @@ SET
     );
 
 SET
-    colunas_b2 = (
+    col_eapp_gestacao = (
         SELECT
             STRING_AGG (column_name, ', ')
         FROM
             `rj-sms-sandbox.sub_pav_us.INFORMATION_SCHEMA.COLUMNS`
         WHERE
-            table_name = 'SIAPS_ESB_b2_tto_odonto_concluido_equipes'
+            table_name = 'SIAPS_eAPP_app_gestacao'
             AND REGEXP_CONTAINS (
                 column_name,
                 r '^(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)'
@@ -42,13 +41,13 @@ SET
     );
 
 SET
-    colunas_b3 = (
+    col_eapp_diab_has = (
         SELECT
             STRING_AGG (column_name, ', ')
         FROM
             `rj-sms-sandbox.sub_pav_us.INFORMATION_SCHEMA.COLUMNS`
         WHERE
-            table_name = 'SIAPS_ESB_b3_tx_exodontias_equipes'
+            table_name = 'SIAPS_eAPP_app_diabetes_e_hipertensao'
             AND REGEXP_CONTAINS (
                 column_name,
                 r '^(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)'
@@ -56,13 +55,13 @@ SET
     );
 
 SET
-    colunas_b4 = (
+    col_eapp_ist = (
         SELECT
             STRING_AGG (column_name, ', ')
         FROM
             `rj-sms-sandbox.sub_pav_us.INFORMATION_SCHEMA.COLUMNS`
         WHERE
-            table_name = 'SIAPS_ESB_b4_escovacao_supervisionada_equipes'
+            table_name = 'SIAPS_eAPP_app_ist'
             AND REGEXP_CONTAINS (
                 column_name,
                 r '^(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)'
@@ -70,13 +69,13 @@ SET
     );
 
 SET
-    colunas_b5 = (
+    col_eapp_tuberc = (
         SELECT
             STRING_AGG (column_name, ', ')
         FROM
             `rj-sms-sandbox.sub_pav_us.INFORMATION_SCHEMA.COLUMNS`
         WHERE
-            table_name = 'SIAPS_ESB_b5_proc_odonto_preventivos_equipes'
+            table_name = 'SIAPS_eAPP_app_tuberculose'
             AND REGEXP_CONTAINS (
                 column_name,
                 r '^(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)'
@@ -84,13 +83,13 @@ SET
     );
 
 SET
-    colunas_b6 = (
+    col_eapp_cancer = (
         SELECT
             STRING_AGG (column_name, ', ')
         FROM
             `rj-sms-sandbox.sub_pav_us.INFORMATION_SCHEMA.COLUMNS`
         WHERE
-            table_name = 'SIAPS_ESB_b6_trat_restaurador_atraumatico_equipes'
+            table_name = 'SIAPS_eAPP_app_prevencao_cancer'
             AND REGEXP_CONTAINS (
                 column_name,
                 r '^(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)'
@@ -102,28 +101,28 @@ SET
 -- =========================================================================
 EXECUTE IMMEDIATE FORMAT (
     """
-CREATE OR REPLACE TABLE `rj-sms-sandbox.sub_pav_us.siaps_consolidado_esb` AS
+CREATE OR REPLACE TABLE `rj-sms-sandbox.sub_pav_us.siaps_consolidado_eAPP` AS
 
 WITH base_unpivot AS (
-  SELECT * FROM (SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, '1º consulta programada' as Componente, 'B1' as Ref, col, valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_ESB_b1_1a_cons_prog_equipes` UNPIVOT(valor FOR col IN (%s)))
+  SELECT ine, ap, cnes, unidade, equipe, 'Mais_acesso_eAPP' as Componente, col, valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_eAPP_app_mais_acesso` UNPIVOT(valor FOR col IN (%s))
   UNION ALL
-  SELECT * FROM (SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, 'Tratamento Concluído' as Componente, 'B2' as Ref, col, valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_ESB_b2_tto_odonto_concluido_equipes` UNPIVOT(valor FOR col IN (%s)))
+  SELECT ine, ap, cnes, unidade, equipe, 'Gestação_eAPP' as Componente, col, valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_eAPP_app_gestacao` UNPIVOT(valor FOR col IN (%s))
   UNION ALL
-  SELECT * FROM (SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, 'Taxa de exodontias' as Componente, 'B3' as Ref, col, valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_ESB_b3_tx_exodontias_equipes` UNPIVOT(valor FOR col IN (%s)))
+  SELECT ine, ap, cnes, unidade, equipe, 'Diabetes e Hipertensão eAPP' as Componente, col, valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_eAPP_app_diabetes_e_hipertensao` UNPIVOT(valor FOR col IN (%s))
   UNION ALL
-  SELECT * FROM (SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, 'Escovação Supervisionada' as Componente, 'B4' as Ref, col, valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_ESB_b4_escovacao_supervisionada_equipes` UNPIVOT(valor FOR col IN (%s)))
+  SELECT ine, ap, cnes, unidade, equipe, 'IST eAPP' as Componente, col, valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_eAPP_app_ist` UNPIVOT(valor FOR col IN (%s))
   UNION ALL
-  SELECT * FROM (SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, 'Procedimentos preventivos' as Componente, 'B5' as Ref, col, valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_ESB_b5_proc_odonto_preventivos_equipes` UNPIVOT(valor FOR col IN (%s)))
+  SELECT ine, ap, cnes, unidade, equipe, 'Tuberculose eAPP' as Componente, col, valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_eAPP_app_tuberculose` UNPIVOT(valor FOR col IN (%s))
   UNION ALL
-  SELECT * FROM (SELECT ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, 'Tratamento restaurador' as Componente, 'B6' as Ref, col, valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_ESB_b6_trat_restaurador_atraumatico_equipes` UNPIVOT(valor FOR col IN (%s)))
+  SELECT ine, ap, cnes, unidade, equipe, 'Prevenção do câncer eAPP' as Componente, col, valor FROM `rj-sms-sandbox.sub_pav_us.SIAPS_eAPP_app_prevencao_cancer` UNPIVOT(valor FOR col IN (%s))
 )
 
 SELECT 
-  ine, ap, cnes, cod_area, unidade, nome_equipe, tipo_equipe, Componente,
-  -- GERAÇÃO AUTOMÁTICA DA DATA
+  ine, ap, cnes, unidade, equipe,
+  -- 1. TRATAMENTO DA DATA
   SAFE.PARSE_DATE('%%Y-%%m-%%d', 
     CONCAT(
-      REGEXP_EXTRACT(col, r'\\d{4}'), '-', 
+      COALESCE(REGEXP_EXTRACT(col, r'\\d{4}'), '2025'), '-', 
       CASE 
         WHEN REGEXP_CONTAINS(LOWER(col), 'jan') THEN '01' WHEN REGEXP_CONTAINS(LOWER(col), 'fev') THEN '02'
         WHEN REGEXP_CONTAINS(LOWER(col), 'mar') THEN '03' WHEN REGEXP_CONTAINS(LOWER(col), 'abr') THEN '04'
@@ -133,20 +132,21 @@ SELECT
         WHEN REGEXP_CONTAINS(LOWER(col), 'nov') THEN '11' WHEN REGEXP_CONTAINS(LOWER(col), 'dez') THEN '12'
       END, '-01')
   ) AS Periodo,
-  -- GERAÇÃO DO TIPO DE INDICADOR (num_B1, den_B1, etc)
+  Componente,
+  -- 2. MAPEAMENTO DO TIPO INDICADOR (Converte 'razao' para 'percent')
   CASE 
-    WHEN REGEXP_CONTAINS(col, 'num') THEN CONCAT('num_', Ref)
-    WHEN REGEXP_CONTAINS(col, 'den') THEN CONCAT('den_', Ref)
-    WHEN REGEXP_CONTAINS(col, 'percent') THEN CONCAT('percent_', Ref)
+    WHEN REGEXP_CONTAINS(col, 'razao') THEN 'percent'
+    ELSE REGEXP_EXTRACT(col, r'^(?:jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)(?:_\\d{4})?_(.*)')
   END AS Tipo_Indicador,
-  -- LIMPEZA E CONVERSÃO DO VALOR
+  -- 3. LIMPEZA E CONVERSÃO DO VALOR
   SAFE_CAST(REPLACE(REPLACE(CAST(valor AS STRING), '%%', ''), ',', '.') AS FLOAT64) AS Valor
 FROM base_unpivot
+WHERE ine != 'MRJ'
 """,
-    colunas_b1,
-    colunas_b2,
-    colunas_b3,
-    colunas_b4,
-    colunas_b5,
-    colunas_b6
+    col_eapp_acesso,
+    col_eapp_gestacao,
+    col_eapp_diab_has,
+    col_eapp_ist,
+    col_eapp_tuberc,
+    col_eapp_cancer
 );
